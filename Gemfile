@@ -9,6 +9,8 @@ gem 'jquery-rails'
 gem 'russian'
 gem 'simple_form'
 gem 'twitter-bootstrap-rails'
+gem "less-rails"
+
 
 group :assets do
   gem 'sass-rails',   '~> 3.2.3'
