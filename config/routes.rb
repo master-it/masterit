@@ -15,6 +15,9 @@ Masterit::Application.routes.draw do
 
   scope :module => :web do
     root :to => 'welcome#index'
+
+    resources :users, only: [:show, :edit, :update]
+
   end
 
 end
