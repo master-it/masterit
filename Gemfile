@@ -40,4 +40,5 @@ group :test do
   gem 'minitest'
   gem 'tconsole'
   gem 'factory_girl_rails'
+  gem 'factory_girl_sequences'
 end
