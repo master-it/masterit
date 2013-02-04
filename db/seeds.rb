@@ -8,6 +8,7 @@
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
 User.create(email: "admin@admin.ru", password: "admin@admin.ru", role: "admin")
-Competition.create(year: 2012)
+Competition.create(year: 2012, state:"closed")
+Competition.create(year: 2013, state:"opened")
 tours = ["Школьный", "Муниципальный", "Областной"]
 tours.each{|tour|  Tour.create(type: tour)}

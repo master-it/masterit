@@ -1,14 +1,16 @@
 Masterit::Application.routes.draw do
   
-  resources :competitions
-
-
+  resources :competitions, only: [:create, :edit, :update, :index, :show, :destroy, :new] do
+    collection do
+      put :trigger_state_event
+    end
+  end
   devise_for :users
   mount RailsAdmin::Engine => '/admin', :as => 'rails_admin'
-  root :to => "welcome#show"
+  root :to => "competitions#index"
 
   scope module: :web do
-    root to: 'welcome#show'
+    root to: 'competitions#index'
   end
 
   # The priority is based upon order of creation:

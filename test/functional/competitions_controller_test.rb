@@ -46,4 +46,11 @@ class CompetitionsControllerTest < ActionController::TestCase
 
     assert_redirected_to competitions_path
   end
+  test "should put trigger state event" do
+    put :trigger_state_event, id: @competition.id, event: :activate
+    assert response :redirect
+
+    @competition.reload
+    assert @competition.deactivated
+  end
 end

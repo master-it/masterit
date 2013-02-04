@@ -1,6 +1,4 @@
 class CompetitionsController < ApplicationController
-  # GET /competitions
-  # GET /competitions.json
   def index
     @competitions = Competition.all
 
@@ -10,8 +8,6 @@ class CompetitionsController < ApplicationController
     end
   end
 
-  # GET /competitions/1
-  # GET /competitions/1.json
   def show
     @competition = Competition.find(params[:id])
 
@@ -21,8 +17,6 @@ class CompetitionsController < ApplicationController
     end
   end
 
-  # GET /competitions/new
-  # GET /competitions/new.json
   def new
     @competition = Competition.new
 
@@ -32,13 +26,10 @@ class CompetitionsController < ApplicationController
     end
   end
 
-  # GET /competitions/1/edit
   def edit
     @competition = Competition.find(params[:id])
   end
 
-  # POST /competitions
-  # POST /competitions.json
   def create
     @competition = Competition.new(params[:competition])
 
@@ -53,8 +44,6 @@ class CompetitionsController < ApplicationController
     end
   end
 
-  # PUT /competitions/1
-  # PUT /competitions/1.json
   def update
     @competition = Competition.find(params[:id])
 
@@ -69,14 +58,21 @@ class CompetitionsController < ApplicationController
     end
   end
 
-  # DELETE /competitions/1
-  # DELETE /competitions/1.json
   def destroy
     @competition = Competition.find(params[:id])
     @competition.destroy
 
     respond_to do |format|
       format.html { redirect_to competitions_url }
+      format.json { head :no_content }
+    end
+  end
+  def trigger_state_event
+    @competition = Competition.find(params[:id])
+    @competition.fire_state_event(params[:event])
+
+    respond_to do |format|
+      format.html { redirect_to competitions_url}
       format.json { head :no_content }
     end
   end
