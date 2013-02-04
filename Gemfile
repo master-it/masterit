@@ -12,6 +12,7 @@ gem 'twitter-bootstrap-rails'
 gem 'rails_admin'
 gem "devise"
 gem "cancan"
+gem 'carrierwave'
 
 group :assets do
   gem 'sass-rails',   '~> 3.2.3'
