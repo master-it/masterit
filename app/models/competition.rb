@@ -1,5 +1,5 @@
 class Competition < ActiveRecord::Base
-  attr_accessible :year
+  attr_accessible :year, :state, :state_event
   has_many :competition_tours
   has_many :tours, :through => :competition_users
   state_machine :state, initial: :new do
