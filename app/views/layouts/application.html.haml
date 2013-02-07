@@ -3,6 +3,20 @@
   = render 'layouts/web/shared/head'
   %body
     = render 'layouts/web/shared/navbar'
+    .navbar.navbar-fixed-top
+      .navbar-inner
+        .container
+          %a.btn.btn-navbar(data-target=".nav-collapse" data-toggle="collapse")
+            %span.icon-bar
+            %span.icon-bar
+            %span.icon-bar
+          %a.brand(href="#") Masterit
+          .container.nav-collapse
+            %ul.nav
+              %li= link_to  t('.competitions'), competitions_path
+              %li= link_to "Link 2", "/path2"
+              %li= link_to "Link 3", "/path3"
+
     .container
       .content
         = render_breadcrumbs
