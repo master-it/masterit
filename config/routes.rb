@@ -1,5 +1,6 @@
 Masterit::Application.routes.draw do
 
+  resources :registration_works
   resources :nominates
 
 
