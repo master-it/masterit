@@ -1,5 +1,8 @@
 Masterit::Application.routes.draw do
 
+  resources :nominates
+
+
   resources :competitions, only: [:create, :edit, :update, :index, :show, :destroy, :new] do
     collection do
       put :trigger_state_event
