@@ -1,21 +1,25 @@
 ru:
   flash:
     controllers:
-      competitions:
-        create:
-          error: "При добавлении конкурса возникли ошибки"
-          success: "Конкурс добавлен"
-        update:
-          error: "При добавлении конкурса возникли ошибки"
-          success: "Конкурс добавлен"
-        destroy:
-          error: "При удалении  конкурса возникли ошибки"
-          success: "Конкурс добавлен"
+      web:
+        competitions:
+          create:
+            error: "При добавлении конкурса возникли ошибки"
+            success: "Конкурс добавлен"
+          update:
+            error: "При добавлении конкурса возникли ошибки"
+            success: "Конкурс добавлен"
+          destroy:
+            error: "При удалении  конкурса возникли ошибки"
+            success: "Конкурс добавлен"
 
   layouts:
-    application:
-      competitions: "Конкурсы"
-
+    web:
+      competitions: "Конкурсы"  
+    web:
+      shared:
+        navbar:
+          logo_title: "MasterIT"  
   activerecord:
     attributes:
       competition:
@@ -35,28 +39,29 @@ ru:
           events:
             activate: "Открыть"
             deactivate: "Закрыть"
-  competitions:
-    index:
-      competitions: "Конкурсы"
-      state: "Статус"
-      year: "Год"
-      add_competition: "Добавить конкурс"
-      edit_competition: "Редактировать"
-      show_competition: "Показать"
-      destroy_competition: "Удалить" 
-    show:
-      competition: "Конкурс %{comp_year} года"
-      tours: "Туры"
-    edit:
-      edit_competition: "Редактирование конкурса"
-    new:
-      new_competition: "Создание конкурса"
-    form:
-      competition: "Конкурс"
-      submit: "Сохранить" 
-      cancel: "Отмена"
-      delete: "Удалить"
-      delete_confirm: "Точно удалить" 
+  web:
+    competitions:
+      index:
+        competitions: "Конкурсы"
+        state: "Статус"
+        year: "Год"
+        add_competition: "Добавить конкурс"
+        edit_competition: "Редактировать"
+        show_competition: "Показать"
+        destroy_competition: "Удалить" 
+      show:
+        competition: "Конкурс %{comp_year} года"
+        tours: "Туры"
+      edit:
+        edit_competition: "Редактирование конкурса"
+      new:
+        new_competition: "Создание конкурса"
+      form:
+        competition: "Конкурс"
+        submit: "Сохранить" 
+        cancel: "Отмена"
+        delete: "Удалить"
+        delete_confirm: "Точно удалить" 
   errors:
     messages:
       expired: "устарела. Пожалуйста, запросите новую"

@@ -32,7 +32,6 @@ RailsAdmin.config do |config|
 
   # Exclude specific models (keep the others):
   config.excluded_models = ["Catalog"]
-
   # Include specific models (exclude the others):
   # config.included_models = []
 
