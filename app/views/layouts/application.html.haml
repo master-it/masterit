@@ -3,13 +3,41 @@
   = render 'layouts/web/shared/head'
   %body
     = render 'layouts/web/shared/navbar'
+
+    .navbar.navbar-fixed-top
+      .navbar-inner
+        .container
+          %a.btn.btn-navbar(data-target=".nav-collapse" data-toggle="collapse")
+            %span.icon-bar
+            %span.icon-bar
+            %span.icon-bar
+          %a.brand(href="#") Masterit
+          .container.nav-collapse
+            %ul.nav.pull-right
+
+              - if user_signed_in?
+                - if current_user.role? :admin
+                  %li= link_to "Админка", rails_admin_path
+                
+                %li= link_to "#{current_user.email}", "#"
+                %li= link_to "Выход", destroy_user_session_path, :method => :delete
+                %li= link_to "Привязать facebook", user_omniauth_authorize_path(:facebook)
+                %li= link_to "Привязать google", user_omniauth_authorize_path(:google_oauth2)
+                %li= link_to "Привязать twitter", user_omniauth_authorize_path(:twitter)
+                %li= link_to "Привязать vkontakte", user_omniauth_authorize_path(:vkontakte)
+              -else
+                %li= link_to "Вход", new_user_session_path
+
+
     .container
       .content
         = render_breadcrumbs
         = bootstrap_flash
         = yield
 
+
       = render 'layouts/web/shared/footer'
+
     /
       Javascripts
       \==================================================

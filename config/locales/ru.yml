@@ -1,4 +1,16 @@
 ru:
+  activerecord:
+    attributes:
+      user:
+        email: "Email"
+        password: "Пароль"
+        password_confirmation: "Подтверждение пароля"
+        last_name: "Фамилия"
+        first_name: "Имя"
+        patronymic: "Отчество"
+        remember_me: "Запомнить меня"
+
+
   errors:
     messages:
       expired: "устарела. Пожалуйста, запросите новую"

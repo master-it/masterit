@@ -1,0 +1,14 @@
+%h2 Авторизация
+= simple_form_for(resource, :as => resource_name, :url => session_path(resource_name)) do |f|
+  .form-inputs
+    = f.input :email, :required => false, :autofocus => true
+    = f.input :password, :required => false
+    = f.input :remember_me, :as => :boolean if devise_mapping.rememberable?
+  .form-actions
+    = f.button :submit, "Войти", class: "btn"
+    = link_to "Войти через facebook", user_omniauth_authorize_path(:facebook), class: "btn"
+    = link_to "Войти через google", user_omniauth_authorize_path(:google_oauth2), class: "btn"
+    = link_to "Войти через twitter", user_omniauth_authorize_path(:twitter), class: "btn"
+    = link_to "Войти через vkontakte", user_omniauth_authorize_path(:vkontakte), class: "btn"
+
+= render "devise/shared/links"

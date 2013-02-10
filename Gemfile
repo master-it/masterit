@@ -12,6 +12,16 @@ gem 'twitter-bootstrap-rails'
 gem 'rails_admin'
 gem "devise"
 gem "cancan"
+gem 'omniauth'
+gem 'omniauth-facebook'
+gem "omniauth-google-oauth2"
+gem 'omniauth-vkontakte'
+gem 'omniauth-twitter'
+gem 'hpricot'
+gem 'ruby_parser'
+gem 'unicorn'
+gem 'configus'
+
 
 group :assets do
   gem 'sass-rails',   '~> 3.2.3'
@@ -23,6 +33,7 @@ end
 
 group :development do
   gem "better_errors"
+  gem 'localtunnel'
 end
 
 group :test do

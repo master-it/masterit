@@ -1,0 +1,7 @@
+%h3 Для продолжения регистрации через социальную сеть введите контактный Email
+
+= simple_form_for @user, :url => url_for(:action => 'registration', :controller => 'users/omniauth_callbacks'), :method => 'post' do |f|
+  = f.input :email
+
+  .form-actions
+    = f.button :submit, "Зарегистрироваться", class: 'btn-primary'

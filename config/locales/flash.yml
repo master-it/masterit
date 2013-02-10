@@ -1,0 +1,8 @@
+ru:
+  flash:
+    controllers:
+      users:
+        omniauth_callbacks:
+          registration:
+            notice: "Пользователь с таким email уже существует. Если этот email Ваш, напишите Администратору"
+            success: "Регистрация через социальную сеть успешно произведена"

@@ -11,8 +11,8 @@ masterit
   cd masterit
   bundle install
   bundle exec rake db:create db:migrate db:seed
-  bundle exec rails s
+  bundle exec unicorn
 ```
 
   Теперь в браузере можно будет открыть сайт, по умолчанию он находится
-по ссылке http://localhost:3000/
+по ссылке http://localhost:8080/
