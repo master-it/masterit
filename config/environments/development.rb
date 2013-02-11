@@ -36,4 +36,14 @@ Masterit::Application.configure do
   config.assets.debug = true
 
   config.action_mailer.default_url_options = { :host => 'localhost:3000' }
+
+  ActionMailer::Base.delivery_method = :smtp
+  ActionMailer::Base.smtp_settings = {
+    :user_name => 'masterit-2dbccf854af577a7',
+    :password => 'd1f6eebbd2972dfa',
+    :address => 'mailtrap.io',
+    :port => '2525',
+    :authentication => :plain,
+  }
+  
 end
