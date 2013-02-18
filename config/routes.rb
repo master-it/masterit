@@ -1,11 +1,12 @@
 Masterit::Application.routes.draw do
 
+
   devise_for :users, :controllers => { 
     :omniauth_callbacks => "users/omniauth_callbacks", 
-    :registrations => 'users/registrations' } do
+    :registrations => 'users/registrations' } 
 
+  devise_scope :admin do
     post "users/omniauth_callbacks", :to => "users/omniauth_callbacks#registration"
-
   end
 
   mount RailsAdmin::Engine => '/admin', :as => 'rails_admin'
