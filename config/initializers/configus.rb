@@ -26,6 +26,11 @@ Configus.build Rails.env do
       app_secret 'ehQDNhqslXfd5RnhZm2r'
     end
 
+    mailer do
+      default_host "masterit.ru"
+      default_from "noreplay@masterit.ru"
+    end
+
   end
 
   env :development, parent: :production do
