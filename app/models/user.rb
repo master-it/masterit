@@ -8,7 +8,7 @@ class User < ActiveRecord::Base
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable, :omniauthable
 
-  attr_accessible :email, :password, :password_confirmation, :remember_me, :role, :first_name, 
+  attr_accessible :email, :password, :password_confirmation, :remember_me, :role, :first_name,
                   :last_name, :patronymic
 
   ROLES = %w[admin moderator user]
