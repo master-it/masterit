@@ -8,7 +8,7 @@ class Web::WorkControllerTest < ActionController::TestCase
     @request.env["devise.mapping"] = Devise.mappings[:user]
   end
 
-  test "should get authorization with soc_network" do
+  test "should get new" do
 
   end
 end
