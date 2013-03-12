@@ -1,4 +1,5 @@
 class Web::WorkController < Web::ApplicationController
-  def index
+  def new
+    @work = Work.new
   end
 end

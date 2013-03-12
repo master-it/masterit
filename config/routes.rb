@@ -18,5 +18,4 @@ Masterit::Application.routes.draw do
     resources :users, only: [:show, :edit, :update]
     resources :work
   end
-
 end
