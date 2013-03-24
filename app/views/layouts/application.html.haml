@@ -30,15 +30,8 @@
 
     .container
       .content
-        = render_breadcrumbs
         = bootstrap_flash
         = yield
 
 
       = render 'layouts/web/shared/footer'
-
-    /
-      Javascripts
-      \==================================================
-    / Placed at the end of the document so the pages load faster
-    = javascript_include_tag "application"
