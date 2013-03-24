@@ -31,6 +31,14 @@ Configus.build Rails.env do
       default_from "noreplay@masterit.ru"
     end
 
+    timepad do
+      api_key "0c6ca8495ac6f911a4bfa3a9638a5190"
+      organization_id 10347
+      list_id 33679
+      api_url "http://timepad.ru/api/maillist_add_items/"
+
+    end
+
   end
 
   env :development, parent: :production do

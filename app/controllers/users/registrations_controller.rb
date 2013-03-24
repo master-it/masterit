@@ -8,6 +8,7 @@ class Users::RegistrationsController < Devise::RegistrationsController
         sign_up(resource_name, resource)
         
         UserMailer.welcome(resource).deliver
+        add_to_timepad_maillist(resource)
 
         respond_with resource, :location => after_sign_up_path_for(resource)
       else
