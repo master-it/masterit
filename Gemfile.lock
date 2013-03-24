@@ -39,6 +39,7 @@ GEM
     builder (3.0.4)
     cancan (1.6.8)
     chattyproc (1.0.0)
+    cocoon (1.1.2)
     coderay (1.0.8)
     coffee-rails (3.2.2)
       coffee-script (>= 2.2.0)
@@ -50,7 +51,6 @@ GEM
     commonjs (0.2.6)
     configus (0.0.4)
       rake
-    devise (2.2.2)
     devise (2.2.3)
       bcrypt-ruby (~> 3.0)
       orm_adapter (~> 0.1)
@@ -262,6 +262,7 @@ PLATFORMS
 DEPENDENCIES
   better_errors
   cancan
+  cocoon
   coffee-rails (~> 3.2.1)
   configus
   devise

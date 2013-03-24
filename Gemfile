@@ -21,6 +21,7 @@ gem 'hpricot'
 gem 'ruby_parser'
 gem 'unicorn'
 gem 'configus'
+gem "cocoon"
 
 
 group :assets do
