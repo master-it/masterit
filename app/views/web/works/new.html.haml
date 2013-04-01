@@ -7,19 +7,17 @@
   = f.simple_fields_for :sources do |u|
     = render 'source_fields', :f => u
   .links.control-group
-    = link_to_add_association t('add'), f, :sources
+    = link_to_add_association t('add_source'), f, :sources
 
-  %hr
   = f.simple_fields_for :videos do |u|
     = render 'video_fields', :f => u
   .links.control-group
-    = link_to_add_association t('add'), f, :videos
+    = link_to_add_association t('add_video'), f, :videos
 
-  %hr
   = f.simple_fields_for :images do |u|
     = render 'image_fields', :f => u
   .links.control-group
-    = link_to_add_association t('add'), f, :images
+    = link_to_add_association t('add_image'), f, :images
 
   .form-actions
     = f.button :submit
