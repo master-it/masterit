@@ -9,6 +9,26 @@ ru:
         first_name: "Имя"
         patronymic: "Отчество"
         remember_me: "Запомнить меня"
+      work:
+        name: Название работы
+        image: Обложка
+        description: Описание
+      image:
+        name: Название изображения
+        url: Ссылка
+        description: Описание
+      video:
+        name: Название видео
+        url: Ссылка
+        description: Описание
+      source:
+        name: Название исходника
+        url: Ссылка
+        description: Описание
+
+  add_source: Добавить исходник
+  add_video: Добавить видео
+  add_image: Добавить изображение
 
 
   errors:
