@@ -22,6 +22,7 @@ gem 'ruby_parser'
 gem 'unicorn'
 gem 'configus'
 gem "cocoon"
+gem 'inkwell'
 
 
 group :assets do

@@ -2,6 +2,9 @@ class User < ActiveRecord::Base
 
   has_many :authorizations, :dependent => :destroy
   has_many :works
+  has_many :posts
+
+  acts_as_inkwell_user
 
   # Include default devise modules. Others available are:
   # :token_authenticatable, :confirmable,
