@@ -21,4 +21,8 @@ class User < ActiveRecord::Base
     self.role == role.to_s
   end
 
+  def to_s
+    "#{last_name} #{first_name}"
+  end
+
 end

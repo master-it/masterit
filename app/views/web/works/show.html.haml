@@ -1,0 +1,10 @@
+.row
+  .span8
+    %h3= @work.name
+  .span8
+    %h5= @work.description
+  .span8
+    %h6
+      = @work.user
+      = "Работа добавлена: #{@work.created_at}"
+=render template:'comments/index' , comments: @work.comments
