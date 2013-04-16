@@ -4,10 +4,11 @@ class Work < ActiveRecord::Base
   has_many :sources, :dependent => :destroy
   has_many :videos, :dependent => :destroy
   has_many :images, :dependent => :destroy
-  has_many :comments
 
   accepts_nested_attributes_for :sources, :reject_if => :all_blank, :allow_destroy => true
   accepts_nested_attributes_for :videos, :reject_if => :all_blank, :allow_destroy => true
   accepts_nested_attributes_for :images, :reject_if => :all_blank, :allow_destroy => true
+
+  acts_as_inkwell_post
 
 end
