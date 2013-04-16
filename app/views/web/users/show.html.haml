@@ -1,6 +1,9 @@
 %h3= t('.users')
-.row
-  .span8
-    = link_to t(".user_edit"), edit_user_path
-    %br
-    = link_to t(".registrate_work"), new_work_path
+%ul
+  %li= link_to t(".user_edit"), edit_user_path
+  %li= link_to "Привязать facebook", user_omniauth_authorize_path(:facebook)
+  %li= link_to "Привязать google", user_omniauth_authorize_path(:google_oauth2)
+  %li= link_to "Привязать twitter", user_omniauth_authorize_path(:twitter)
+  %li= link_to "Привязать vkontakte", user_omniauth_authorize_path(:vkontakte)
+
+  %li= link_to t(".registrate_work"), new_work_path

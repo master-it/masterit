@@ -18,12 +18,10 @@
                 - if current_user.role? :admin
                   %li= link_to "Админка", rails_admin_path
                 
-                %li= link_to "#{current_user.email}", user_path(current_user)
+                %li= link_to "Личный кабинет", user_path(current_user)
+                %li= link_to "Каталог работ", works_path
+
                 %li= link_to "Выход", destroy_user_session_path, :method => :delete
-                %li= link_to "Привязать facebook", user_omniauth_authorize_path(:facebook)
-                %li= link_to "Привязать google", user_omniauth_authorize_path(:google_oauth2)
-                %li= link_to "Привязать twitter", user_omniauth_authorize_path(:twitter)
-                %li= link_to "Привязать vkontakte", user_omniauth_authorize_path(:vkontakte)
               -else
                 %li= link_to "Вход", new_user_session_path
 
