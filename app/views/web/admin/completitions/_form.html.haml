@@ -1,5 +1,5 @@
 = simple_form_for @completition, :url => url, :html => { :class => 'default_class' } do |f|
-  -#= f.input :state_event, as: :state_event, wrapper: :state
+  = f.input :state_event, as: :state_event, wrapper: :state
   = f.input :name
   = f.input :year
   = f.association :tour

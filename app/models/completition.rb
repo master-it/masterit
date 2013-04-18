@@ -1,11 +1,11 @@
 class Completition < ActiveRecord::Base
   # attr_accessible :title, :body
-  attr_accessible :name, :tour_id, :year
-  belongs_to :tour
-  validates :name, :presence => true
-  validates :tour_id, :presence => true
-  validates :year, :presence => true
+  attr_accessible :name, :tour_id, :year, :state_event
   
+  belongs_to :tour
+  
+  validates :name, :presence => true
+
   state_machine :state, initial: :hidden do
     state :hidden
     state :published
