@@ -2,6 +2,7 @@
   = f.input :name
   = f.input :image
   = f.input :description, as: :string
+  = f.association :tour
   = f.input :user_id, as: :hidden, input_html: { value:  current_user.id }
   %hr
   = f.simple_fields_for :sources do |u|
