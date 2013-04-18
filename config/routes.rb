@@ -17,6 +17,6 @@ Masterit::Application.routes.draw do
     root :to => 'welcome#index'
     resources :users, only: [:show, :edit, :update]
     resources :works
-    resource :comments
+    resources :comments
   end
 end
