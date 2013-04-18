@@ -25,7 +25,7 @@ ActiveRecord::Schema.define(:version => 20130417134554) do
     t.datetime "updated_at", :null => false
   end
 
-  create_table "comletitions", :force => true do |t|
+  create_table "completitions", :force => true do |t|
     t.string   "name"
     t.integer  "tour_id"
     t.integer  "year"

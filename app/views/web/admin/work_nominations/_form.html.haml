@@ -1,5 +1,5 @@
 = simple_form_for @work_nomination, :url => url, :html => { :class => 'default_class' } do |f|
-  = f.input :state_event, as: :select, collection: %w{hide publish} # as: :state_event no work :(
+  = f.input :state_event, as: :state_event, wrapper: :state
   = f.input :name
   .form-actions
     = f.button :submit, :class => 'btn btn-primary'
