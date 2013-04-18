@@ -7,6 +7,7 @@
       %th= sort_link @q, :name
       %th= sort_link @q, :image
       %th= sort_link @q, :tour_id
+      %th= sort_link @q, :region_id
       -#%th= sort_link @q, :nominate
       -#%th= sort_link @q, :state
       %th= sort_link @q, :user_id
@@ -18,6 +19,7 @@
         %td= item.name
         %td= item.image
         %td= Tour.find(item.tour_id)
+        %td= Region.find(item.region_id)
         -#%td= item.nominate
         -#%td= item.human_state_name
         %td= User.find(item.user_id)

@@ -2,6 +2,8 @@ class Region < ActiveRecord::Base
   # attr_accessible :title, :body
   attr_accessible :name, :state_event
   
+  has_many :works
+  
   validates :name, :presence => true
   
   state_machine :state, initial: :hidden do
