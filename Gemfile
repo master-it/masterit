@@ -22,6 +22,10 @@ gem 'ruby_parser'
 gem 'unicorn'
 gem 'configus'
 gem "cocoon"
+gem "ransack"
+gem 'state_machine'
+gem 'ancestry'
+gem 'usefull_scopes', git: 'https://github.com/kaize/usefull_scopes.git'
 
 
 group :assets do

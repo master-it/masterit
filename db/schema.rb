@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130324185559) do
+ActiveRecord::Schema.define(:version => 20130418154520) do
 
   create_table "authorizations", :force => true do |t|
     t.string   "provider"
@@ -25,6 +25,15 @@ ActiveRecord::Schema.define(:version => 20130324185559) do
     t.datetime "updated_at", :null => false
   end
 
+  create_table "completitions", :force => true do |t|
+    t.string   "name"
+    t.integer  "tour_id"
+    t.integer  "year"
+    t.string   "state"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
   create_table "images", :force => true do |t|
     t.string   "name"
     t.string   "url"
@@ -32,6 +41,22 @@ ActiveRecord::Schema.define(:version => 20130324185559) do
     t.integer  "work_id"
     t.datetime "created_at",  :null => false
     t.datetime "updated_at",  :null => false
+  end
+
+  create_table "menu_items", :force => true do |t|
+    t.string   "title"
+    t.string   "ancestry"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
+  create_table "pages", :force => true do |t|
+    t.string   "title"
+    t.text     "body"
+    t.string   "state"
+    t.datetime "created_at",   :null => false
+    t.datetime "updated_at",   :null => false
+    t.integer  "menu_item_id"
   end
 
   create_table "rails_admin_histories", :force => true do |t|
@@ -47,6 +72,13 @@ ActiveRecord::Schema.define(:version => 20130324185559) do
 
   add_index "rails_admin_histories", ["item", "table", "month", "year"], :name => "index_rails_admin_histories"
 
+  create_table "regions", :force => true do |t|
+    t.string   "name"
+    t.string   "state"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
   create_table "sources", :force => true do |t|
     t.string   "name"
     t.string   "url"
@@ -54,6 +86,13 @@ ActiveRecord::Schema.define(:version => 20130324185559) do
     t.integer  "work_id"
     t.datetime "created_at",  :null => false
     t.datetime "updated_at",  :null => false
+  end
+
+  create_table "tours", :force => true do |t|
+    t.string   "name"
+    t.string   "state"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
   end
 
   create_table "users", :force => true do |t|
@@ -89,14 +128,23 @@ ActiveRecord::Schema.define(:version => 20130324185559) do
     t.datetime "updated_at",  :null => false
   end
 
+  create_table "work_nominations", :force => true do |t|
+    t.string   "name"
+    t.string   "state"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
   create_table "works", :force => true do |t|
     t.string   "name"
-    t.string   "nomination"
     t.string   "image"
     t.text     "description"
     t.integer  "user_id"
-    t.datetime "created_at",  :null => false
-    t.datetime "updated_at",  :null => false
+    t.datetime "created_at",         :null => false
+    t.datetime "updated_at",         :null => false
+    t.integer  "region_id"
+    t.integer  "tour_id"
+    t.integer  "work_nomination_id"
   end
 
 end
