@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130417134554) do
+ActiveRecord::Schema.define(:version => 20130418154520) do
 
   create_table "authorizations", :force => true do |t|
     t.string   "provider"
@@ -25,7 +25,7 @@ ActiveRecord::Schema.define(:version => 20130417134554) do
     t.datetime "updated_at", :null => false
   end
 
-  create_table "comletitions", :force => true do |t|
+  create_table "completitions", :force => true do |t|
     t.string   "name"
     t.integer  "tour_id"
     t.integer  "year"
@@ -41,6 +41,22 @@ ActiveRecord::Schema.define(:version => 20130417134554) do
     t.integer  "work_id"
     t.datetime "created_at",  :null => false
     t.datetime "updated_at",  :null => false
+  end
+
+  create_table "menu_items", :force => true do |t|
+    t.string   "title"
+    t.string   "ancestry"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
+  create_table "pages", :force => true do |t|
+    t.string   "title"
+    t.text     "body"
+    t.string   "state"
+    t.datetime "created_at",   :null => false
+    t.datetime "updated_at",   :null => false
+    t.integer  "menu_item_id"
   end
 
   create_table "rails_admin_histories", :force => true do |t|
@@ -121,14 +137,14 @@ ActiveRecord::Schema.define(:version => 20130417134554) do
 
   create_table "works", :force => true do |t|
     t.string   "name"
-    t.string   "nomination"
     t.string   "image"
     t.text     "description"
     t.integer  "user_id"
-    t.datetime "created_at",  :null => false
-    t.datetime "updated_at",  :null => false
+    t.datetime "created_at",         :null => false
+    t.datetime "updated_at",         :null => false
     t.integer  "region_id"
     t.integer  "tour_id"
+    t.integer  "work_nomination_id"
   end
 
 end

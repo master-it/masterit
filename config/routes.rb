@@ -11,7 +11,7 @@ Masterit::Application.routes.draw do
 
  # mount RailsAdmin::Engine => '/admin', :as => 'rails_admin'
 
-  root :to => "web/welcome#index"
+  #root :to => "web/welcome#index"
   
   scope :module => :web do
     root :to => 'welcome#index'
@@ -21,11 +21,17 @@ Masterit::Application.routes.draw do
       resources :work_nominations
       resources :works
       resources :regions
-      resources :competitions
+      resources :completitions
       resources :tours
       resources :users
+      resources :menu_items do
+        scope module: :menu_items do
+          resources :pages
+        end
+      end
     end
     
+    resources :pages, only: [:show]
     resources :users, only: [:show, :edit, :update]
     resources :works
   end

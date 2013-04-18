@@ -1,6 +1,6 @@
 class CreateCompletition < ActiveRecord::Migration
   def change
-    create_table :comletitions do |t|
+    create_table :completitions do |t|
       t.string :name
       t.integer :tour_id
       t.integer :year
