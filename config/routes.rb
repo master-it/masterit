@@ -24,8 +24,14 @@ Masterit::Application.routes.draw do
       resources :completitions
       resources :tours
       resources :users
+      resources :menu_items do
+        scope module: :menu_items do
+          resources :pages
+        end
+      end
     end
     
+    resources :pages, only: [:show]
     resources :users, only: [:show, :edit, :update]
     resources :works
   end

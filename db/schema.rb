@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130418090305) do
+ActiveRecord::Schema.define(:version => 20130418154520) do
 
   create_table "authorizations", :force => true do |t|
     t.string   "provider"
@@ -41,6 +41,22 @@ ActiveRecord::Schema.define(:version => 20130418090305) do
     t.integer  "work_id"
     t.datetime "created_at",  :null => false
     t.datetime "updated_at",  :null => false
+  end
+
+  create_table "menu_items", :force => true do |t|
+    t.string   "title"
+    t.string   "ancestry"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
+  create_table "pages", :force => true do |t|
+    t.string   "title"
+    t.text     "body"
+    t.string   "state"
+    t.datetime "created_at",   :null => false
+    t.datetime "updated_at",   :null => false
+    t.integer  "menu_item_id"
   end
 
   create_table "rails_admin_histories", :force => true do |t|
