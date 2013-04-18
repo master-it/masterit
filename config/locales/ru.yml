@@ -1,4 +1,9 @@
 ru:
+  web:
+    admin:
+      work_nominations:
+        index:
+          confirm: "Подтвердить удаление"
   activerecord:
     attributes:
       user:
@@ -13,6 +18,9 @@ ru:
         name: Название работы
         image: Обложка
         description: Описание
+      work_nomination:
+        name: Название работы
+        state: Статус номинации
       image:
         name: Название изображения
         url: Ссылка
