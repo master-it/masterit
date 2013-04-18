@@ -2,7 +2,7 @@
   -#= f.input :state_event, as: :state_event, wrapper: :state
   = f.input :name
   = f.input :year
-  = f.association :tour_id
+  = f.association :tour
   .form-actions
     = f.button :submit, :class => 'btn btn-primary'
     = link_to t('.cancel'), admin_completitions_path, :class => 'btn'

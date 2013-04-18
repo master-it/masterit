@@ -1,7 +1,7 @@
 class Completition < ActiveRecord::Base
   # attr_accessible :title, :body
   attr_accessible :name, :tour_id, :year
-  
+  belongs_to :tour
   validates :name, :presence => true
   validates :tour_id, :presence => true
   validates :year, :presence => true
