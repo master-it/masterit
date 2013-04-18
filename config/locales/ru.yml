@@ -1,4 +1,41 @@
 ru:
+  layouts:
+    application:
+      work_nominations: Номинации
+      works: Работы
+      regions: Регионы
+      tours: Туры
+      users: Пользователи
+      completitions: Конкурсы
+  web:
+    admin:
+      tours:
+        index:
+          confirm: &confirm ""
+      work_nominations:
+        index:
+          confirm: *confirm
+      works:
+        index:
+          confirm: *confirm
+      regions:
+        index:
+          confirm: *confirm
+      tours:
+        index:
+          confirm: *confirm
+      users:
+        index:
+          confirm: *confirm
+      completitions:
+        index:
+          confirm: *confirm
+    users:
+      show:
+        info: Мои данные
+        my_works: Мои работы
+        my_accounts: Мои аккаунты
+        
   activerecord:
     attributes:
       user:
@@ -13,6 +50,10 @@ ru:
         name: Название работы
         image: Обложка
         description: Описание
+        tour_id: Тур
+        region_id: Регион
+        work_nomination: Номинация
+        user_id: Пользователь
       image:
         name: Название изображения
         url: Ссылка

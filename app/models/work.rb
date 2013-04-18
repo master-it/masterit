@@ -1,5 +1,5 @@
 class Work < ActiveRecord::Base
-  attr_accessible :description, :image, :name, :nomination, :user_id, :tour_id, :region_id
+  attr_accessible :description, :image, :name, :nomination, :user_id, :tour_id, :region_id, :work_nomination_id
   belongs_to :user
   has_many :sources, :dependent => :destroy
   has_many :videos, :dependent => :destroy
