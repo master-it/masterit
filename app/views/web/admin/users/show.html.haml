@@ -1,6 +1,24 @@
-%h3= t('.users')
-.row
-  .span8
-    = link_to t(".user_edit"), edit_user_path
-    %br
-    = link_to t(".registrate_work"), new_work_path
+.tabbable
+  %ul.nav.nav-tabs
+    %li.active= link_to t('.info'), '#info', data: { toggle: 'tab' }
+    %li= link_to t('.my_works'), '#my_works', data: { toggle: 'tab' }
+    %li= link_to t('.my_accounts'), '#my_accounts', data: { toggle: 'tab' }
+
+  .tab-content
+    .tab-pane.active#info
+      %h3= t('.users')
+      .row
+        .span8
+          = link_to t(".user_edit"), edit_user_path
+          %br
+          = link_to t(".registrate_work"), new_work_path
+    .tab-pane#my_works
+      -#= link_to t(".works"), works_path
+    .tab-pane#my_accounts
+      = link_to "Привязать facebook", user_omniauth_authorize_path(:facebook)
+      %br
+      = link_to "Привязать google", user_omniauth_authorize_path(:google_oauth2)
+      %br
+      = link_to "Привязать twitter", user_omniauth_authorize_path(:twitter)
+      %br
+      = link_to "Привязать vkontakte", user_omniauth_authorize_path(:vkontakte)
