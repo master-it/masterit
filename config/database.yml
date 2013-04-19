@@ -1,0 +1,33 @@
+development:
+  adapter: postgresql
+  encoding: unicode
+  database: masterit_development
+  pool: 5
+  username: postgres
+  password:
+
+staging:
+  adapter: postgresql
+  encoding: unicode
+  database: dan303lrueti1j
+  pool: 1
+  timeout: 5000
+  username: htotqzuzfflgqe
+  password: LnNudWNHqPH89mnpW24yuSHEw1
+
+test: &test
+  adapter: postgresql
+  encoding: unicode
+  database: masterit_test
+  pool: 5
+  username: postgres
+  password:
+
+production:
+  adapter: postgresql
+  encoding: unicode
+  database: masterit_production
+  pool: 1
+  timeout: 5000
+  username: postgres
+  password:
