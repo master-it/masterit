@@ -10,22 +10,5 @@
  *
  *= require bootstrap_and_overrides
  *= require jquery.ui.datepicker
- *= require select2
  *= require_self
  */
-.navbar-fixed-top, .navbar-fixed-bottom {
-  position: static;
-  margin-bottom: 20px;
-}
-
-.select2 {
-  width: 220px;
-}
-
-.sortable tr{
-    cursor: move;
-}
-
-.button-gap{
-    margin-left: 10em;
-}
