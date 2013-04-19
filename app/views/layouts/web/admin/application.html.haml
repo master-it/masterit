@@ -33,6 +33,7 @@
       - if current_user.role? :admin
         .container
           .content
+            = render 'layouts/web/admin/shared/title'
             = bootstrap_flash
             = yield
 
