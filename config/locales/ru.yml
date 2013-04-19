@@ -15,6 +15,9 @@ ru:
           menu: Динамическое меню
   web:
     admin:
+      welcome:
+        index:
+          title: "Добро пожаловать, Администратор!"
       menu_items:
         index:
           confirm: *confirm
@@ -128,7 +131,28 @@ ru:
         tour_id: Тур
         region_id: Регион
         work_nomination: Номинация
+        tour: Тур
+        region: Регион
         user_id: Пользователь
+      work_nomination:
+        name: Название номинации
+        state: Статус
+        state_event: Статус
+      region:
+        name: Название региона
+        state: Статус
+        state_event: Статус
+      tour:
+        name: Название тура
+        state: Статус
+        state_event: Статус
+      completition:
+        name: Название конкурса
+        year: Год
+        tour: Тур
+        tour_id: Тур
+        state: Статус
+        state_event: Статус
       image:
         name: Название изображения
         url: Ссылка
