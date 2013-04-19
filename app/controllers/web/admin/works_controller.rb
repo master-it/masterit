@@ -8,6 +8,10 @@ class Web::Admin::WorksController < Web::Admin::ApplicationController
     @work = Work.new
   end
   
+  def edit
+    @work = WorkCreateType.find(params[:id])
+  end
+  
   def update
     @work = WorkCreateType.find params[:id]
 

@@ -1,4 +1,4 @@
-= simple_form_for @work , :html => {:class => "form-horizontal"}do |f|
+= simple_form_for @work, :url => url, :html => {:class => "form-horizontal"}do |f|
   = f.input :name
   = f.input :image
   = f.input :description, as: :string
