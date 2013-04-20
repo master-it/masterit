@@ -10,12 +10,33 @@ Masterit::Application.routes.draw do
     post "users/omniauth_callbacks", :to => "users/omniauth_callbacks#registration"
   end
 
- mount RailsAdmin::Engine => '/rails_admin', :as => 'rails_admin'
+  devise_scope :expert do
+    post "users/omniauth_callbacks", :to => "users/omniauth_callbacks#registration"
+  end
+
+  devise_scope :curator do
+    post "users/omniauth_callbacks", :to => "users/omniauth_callbacks#registration"
+  end
+
+  mount RailsAdmin::Engine => '/rails_admin', :as => 'rails_admin'
 
   #root :to => "web/welcome#index"
 
   scope :module => :web do
     root :to => 'welcome#index'
+
+    namespace :expert do
+      resources :works, only: [:index, :show]
+    end
+    namespace :curator do
+      resources :works, only: [:index, :show, :edit]
+      resources :nominations, only: [:index, :show, :edit]
+      resources :experts, only: [] do
+        collection do
+          put :forming_basket
+        end
+      end
+    end
 
     namespace :admin do
       root to: "welcome#index"

@@ -17,6 +17,11 @@ class Web::Admin::CompetitionsControllerTest < ActionController::TestCase
     assert_response :success
   end
 
+  test "should get show" do
+    get :show, @params
+    assert_response :success
+  end
+
   test "should get edit" do
     get :edit, @params
     assert_response :success
