@@ -5,14 +5,15 @@ ru:
   layouts:
     web:
       admin:
-        application:
-          work_nominations: Номинации
-          works: Работы
-          regions: Регионы
-          tours: Туры
-          users: Пользователи
-          completitions: Конкурсы
-          menu: Динамическое меню
+        shared:
+          models_management:
+            work_nominations: Номинации
+            works: Работы
+            regions: Регионы
+            tours: Туры
+            users: Пользователи
+            competitions: Конкурсы
+            menu: Динамическое меню
   web:
     admin:
       welcome:
@@ -97,10 +98,10 @@ ru:
           title: Редактировать пользователя
         form:
           cancel: *cancel    
-      completitions:
+      competitions:
         index:
           confirm: *confirm
-          title: &completitions Конкурсы
+          title: &competitions Конкурсы
           new: *new
         new:
           title: Добавить конкурс
@@ -108,6 +109,9 @@ ru:
           title: Редактировать конкурс
         form:
           cancel: *cancel
+        show:
+          title: "Конкурс"
+          tour: "тур"
     users:
       show:
         info: Мои данные
@@ -146,7 +150,7 @@ ru:
         name: Название тура
         state: Статус
         state_event: Статус
-      completition:
+      competition:
         name: Название конкурса
         year: Год
         tour: Тур

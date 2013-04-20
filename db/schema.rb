@@ -41,9 +41,8 @@ ActiveRecord::Schema.define(:version => 20130419050159) do
   add_index "ckeditor_assets", ["assetable_type", "assetable_id"], :name => "idx_ckeditor_assetable"
   add_index "ckeditor_assets", ["assetable_type", "type", "assetable_id"], :name => "idx_ckeditor_assetable_type"
 
-  create_table "completitions", :force => true do |t|
+  create_table "competitions", :force => true do |t|
     t.string   "name"
-    t.integer  "tour_id"
     t.integer  "year"
     t.string   "state"
     t.datetime "created_at", :null => false
@@ -105,10 +104,11 @@ ActiveRecord::Schema.define(:version => 20130419050159) do
   end
 
   create_table "tours", :force => true do |t|
+    t.integer  "competition_id"
     t.string   "name"
     t.string   "state"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
+    t.datetime "created_at",     :null => false
+    t.datetime "updated_at",     :null => false
   end
 
   create_table "users", :force => true do |t|
