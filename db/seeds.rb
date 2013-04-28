@@ -18,3 +18,6 @@ work_nominations = ["Тематический сайт","2-мерная стат
 "Реклама к юбилею Конкурса (видеоролики, графика и т.д.)"]
 tours.each { |tour| Tour.create(name: tour)}
 work_nominations.each { |work_nomination| WorkNomination.create(name: work_nomination) }
+m = MenuItem.create(title: "Главная")
+p = m.pages.create(title: "Добро пожаловать на Мастер-ИТ!", body: "Добро пожаловать на Мастерит! Если ты админ, зайди в админку и исправь главную страницу")
+p.publish
