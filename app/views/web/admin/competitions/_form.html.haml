@@ -3,6 +3,7 @@
   = f.input :name
   = f.input :year
   = f.association :tours
+  = f.association :work_nominations
   .form-actions
     = f.button :submit, class: 'btn btn-primary'
     = link_to t('.cancel'), admin_competitions_path, class: 'btn'

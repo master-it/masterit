@@ -4,6 +4,7 @@ class Tour < ActiveRecord::Base
 
   belongs_to :competition
   has_many :works
+  
   validates :name, :presence => true
 
   state_machine :state, initial: :hidden do
