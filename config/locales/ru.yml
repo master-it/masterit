@@ -13,7 +13,7 @@ ru:
             tours: Туры
             users: Пользователи
             competitions: Конкурсы
-            menu: Динамическое меню
+            menu: Меню
   web:
     admin:
       welcome:
