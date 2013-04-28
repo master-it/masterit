@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130419050159) do
+ActiveRecord::Schema.define(:version => 20130428121729) do
 
   create_table "authorizations", :force => true do |t|
     t.string   "provider"
@@ -21,6 +21,12 @@ ActiveRecord::Schema.define(:version => 20130419050159) do
     t.string   "secret"
     t.string   "name"
     t.string   "link"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
+  create_table "baskets", :force => true do |t|
+    t.integer  "expert_id"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
   end
@@ -49,6 +55,44 @@ ActiveRecord::Schema.define(:version => 20130419050159) do
     t.datetime "updated_at", :null => false
   end
 
+  create_table "conditions", :force => true do |t|
+    t.integer  "competition_id"
+    t.string   "title"
+    t.text     "describtion"
+    t.string   "state"
+    t.datetime "created_at",     :null => false
+    t.datetime "updated_at",     :null => false
+  end
+
+  create_table "estimations", :force => true do |t|
+    t.integer  "content"
+    t.integer  "decoration"
+    t.integer  "technology_usage"
+    t.integer  "expert_id"
+    t.integer  "work_id"
+    t.datetime "created_at",       :null => false
+    t.datetime "updated_at",       :null => false
+  end
+
+  create_table "experts", :force => true do |t|
+    t.integer  "nomination_id"
+    t.datetime "created_at",                             :null => false
+    t.datetime "updated_at",                             :null => false
+    t.string   "email",                  :default => "", :null => false
+    t.string   "encrypted_password",     :default => "", :null => false
+    t.string   "reset_password_token"
+    t.datetime "reset_password_sent_at"
+    t.datetime "remember_created_at"
+    t.integer  "sign_in_count",          :default => 0
+    t.datetime "current_sign_in_at"
+    t.datetime "last_sign_in_at"
+    t.string   "current_sign_in_ip"
+    t.string   "last_sign_in_ip"
+  end
+
+  add_index "experts", ["email"], :name => "index_experts_on_email", :unique => true
+  add_index "experts", ["reset_password_token"], :name => "index_experts_on_reset_password_token", :unique => true
+
   create_table "images", :force => true do |t|
     t.string   "name"
     t.string   "url"
@@ -64,6 +108,25 @@ ActiveRecord::Schema.define(:version => 20130419050159) do
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
   end
+
+  create_table "moderators", :force => true do |t|
+    t.integer  "region_id"
+    t.datetime "created_at",                             :null => false
+    t.datetime "updated_at",                             :null => false
+    t.string   "email",                  :default => "", :null => false
+    t.string   "encrypted_password",     :default => "", :null => false
+    t.string   "reset_password_token"
+    t.datetime "reset_password_sent_at"
+    t.datetime "remember_created_at"
+    t.integer  "sign_in_count",          :default => 0
+    t.datetime "current_sign_in_at"
+    t.datetime "last_sign_in_at"
+    t.string   "current_sign_in_ip"
+    t.string   "last_sign_in_ip"
+  end
+
+  add_index "moderators", ["email"], :name => "index_moderators_on_email", :unique => true
+  add_index "moderators", ["reset_password_token"], :name => "index_moderators_on_reset_password_token", :unique => true
 
   create_table "pages", :force => true do |t|
     t.string   "title"
@@ -92,6 +155,15 @@ ActiveRecord::Schema.define(:version => 20130419050159) do
     t.string   "state"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
+  end
+
+  create_table "reports", :force => true do |t|
+    t.integer  "competition_id"
+    t.string   "title"
+    t.text     "describtion"
+    t.string   "state"
+    t.datetime "created_at",     :null => false
+    t.datetime "updated_at",     :null => false
   end
 
   create_table "sources", :force => true do |t|
@@ -161,6 +233,7 @@ ActiveRecord::Schema.define(:version => 20130419050159) do
     t.integer  "region_id"
     t.integer  "tour_id"
     t.integer  "work_nomination_id"
+    t.integer  "basket_id"
   end
 
 end

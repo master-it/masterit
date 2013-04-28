@@ -3,7 +3,12 @@
 
 ru:
   activerecord:
+    models:
+      competition: "конкурс"
     state_machines:
       states:
         hidden: Скрыто
-        published: Опубликованно
+        published: Опубликовано
+      state_events:
+        hide: "Скрыть"
+        publish: "Открыть"

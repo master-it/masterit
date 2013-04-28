@@ -12,10 +12,10 @@ class User < ActiveRecord::Base
   attr_accessible :email, :password, :password_confirmation, :remember_me, :role, :first_name,
                   :last_name, :patronymic
 
-  ROLES = %w[admin moderator user]
+  ROLES = %w[user expert moderator admin]
 
-  def role?(role)
-    self.role == role.to_s
+  def role?(base_role)
+    ROLES.index(base_role.to_s) <= ROLES.index(role)
   end
 
   def to_s

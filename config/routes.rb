@@ -1,5 +1,14 @@
 Masterit::Application.routes.draw do
 
+
+  devise_scope :expert do
+    post "users/omniauth_callbacks", to: "users/omniauth_callbacks#registration"
+  end
+
+  devise_scope :moderator do
+    post "users/omniauth_callbacks", to: "users/omniauth_callbacks#registration"
+  end
+
   mount Ckeditor::Engine => '/ckeditor'
 
   devise_for :users, :controllers => {
@@ -7,14 +16,6 @@ Masterit::Application.routes.draw do
     :registrations => 'users/registrations' }
 
   devise_scope :admin do
-    post "users/omniauth_callbacks", :to => "users/omniauth_callbacks#registration"
-  end
-
-  devise_scope :expert do
-    post "users/omniauth_callbacks", :to => "users/omniauth_callbacks#registration"
-  end
-
-  devise_scope :curator do
     post "users/omniauth_callbacks", :to => "users/omniauth_callbacks#registration"
   end
 
@@ -28,7 +29,7 @@ Masterit::Application.routes.draw do
     namespace :expert do
       resources :works, only: [:index, :show]
     end
-    namespace :curator do
+    namespace :moderator do
       resources :works, only: [:index, :show, :edit]
       resources :nominations, only: [:index, :show, :edit]
       resources :experts, only: [] do

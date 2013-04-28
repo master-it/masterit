@@ -1,5 +1,5 @@
 class CreateEstimations < ActiveRecord::Migration
-  def change
+  def up
     create_table :estimations do |t|
       t.integer :content
       t.integer :decoration
@@ -9,4 +9,5 @@ class CreateEstimations < ActiveRecord::Migration
       t.timestamps
     end
   end
+
 end

@@ -108,6 +108,9 @@ ru:
         edit:
           title: Редактировать конкурс
         form:
+          tours: "Туры"
+          main: "Основное"
+          add_tour: "Добавить тур"
           cancel: *cancel
         show:
           title: "Конкурс"

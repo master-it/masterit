@@ -8,5 +8,3 @@
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
 User.create(email: configus.admin.email, password: configus.admin.password, role: configus.admin.role)
-tours = ["Школьный", "Муниципальный", "Областной"]
-tours.each { |tour| Tour.create(name: tour)}

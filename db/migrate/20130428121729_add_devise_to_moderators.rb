@@ -1,6 +1,6 @@
-class DeviseCreateExperts < ActiveRecord::Migration
-  def change
-    create_table(:experts) do |t|
+class AddDeviseToModerators < ActiveRecord::Migration
+  def self.up
+    change_table(:moderators) do |t|
       ## Database authenticatable
       t.string :email,              :null => false, :default => ""
       t.string :encrypted_password, :null => false, :default => ""
@@ -34,13 +34,20 @@ class DeviseCreateExperts < ActiveRecord::Migration
       # t.string :authentication_token
 
 
-      t.timestamps
+      # Uncomment below if timestamps were not included in your original model.
+      # t.timestamps
     end
 
-    add_index :experts, :email,                :unique => true
-    add_index :experts, :reset_password_token, :unique => true
-    # add_index :experts, :confirmation_token,   :unique => true
-    # add_index :experts, :unlock_token,         :unique => true
-    # add_index :experts, :authentication_token, :unique => true
+    add_index :moderators, :email,                :unique => true
+    add_index :moderators, :reset_password_token, :unique => true
+    # add_index :moderators, :confirmation_token,   :unique => true
+    # add_index :moderators, :unlock_token,         :unique => true
+    # add_index :moderators, :authentication_token, :unique => true
+  end
+
+  def self.down
+    # By default, we don't want to make any assumption about how to roll back a migration when your
+    # model already existed. Please edit below which fields you would like to remove in this migration.
+    raise ActiveRecord::IrreversibleMigration
   end
 end
