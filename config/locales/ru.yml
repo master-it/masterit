@@ -3,6 +3,8 @@ ru:
   cancel: &cancel Отмена
   confirm: &confirm Вы уверены?
   layouts:
+    application:
+      catalog_works: Каталог работ
     web:
       admin:
         shared:
