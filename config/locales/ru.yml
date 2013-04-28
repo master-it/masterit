@@ -3,6 +3,8 @@ ru:
   cancel: &cancel Отмена
   confirm: &confirm Вы уверены?
   layouts:
+    application:
+      catalog_works: Каталог работ
     web:
       admin:
         shared:
@@ -13,7 +15,7 @@ ru:
             tours: Туры
             users: Пользователи
             competitions: Конкурсы
-            menu: Динамическое меню
+            menu: Меню
   web:
     admin:
       welcome:

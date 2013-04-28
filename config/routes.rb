@@ -53,7 +53,12 @@ Masterit::Application.routes.draw do
         end
       end
     end
-
+    
+    resources :competitions, only: [:index, :show] do
+      scope module: :competitions do
+        resources :work_nominations, only: [:index, :show]
+      end
+    end
     resources :pages, only: [:show]
     resources :users, only: [:show, :edit, :update]
     resources :works

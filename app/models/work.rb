@@ -25,5 +25,8 @@ class Work < ActiveRecord::Base
     event :prepare do
       transition :estimated => :on_estimating
     end
+
+  def to_s
+    name
   end
 end
