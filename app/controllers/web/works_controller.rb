@@ -16,4 +16,14 @@ class Web::WorksController < Web::ApplicationController
       render :action => :new
     end
   end
+
+  def index
+    @works = Work.scoped
+  end
+
+  def show
+    @work = Work.find params[:id]
+    @comments = @work.commentline
+    @new_comment = Inkwell::Comment.new
+  end
 end

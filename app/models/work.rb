@@ -14,8 +14,11 @@ class Work < ActiveRecord::Base
   accepts_nested_attributes_for :sources, :reject_if => :all_blank, :allow_destroy => true
   accepts_nested_attributes_for :videos, :reject_if => :all_blank, :allow_destroy => true
   accepts_nested_attributes_for :images, :reject_if => :all_blank, :allow_destroy => true
-  
+
+  acts_as_inkwell_post
+
   def to_s
     name
   end
+
 end
