@@ -9,13 +9,17 @@ ru:
       admin:
         shared:
           models_management:
+            cabinet: Кабинет
             work_nominations: Номинации
             works: Работы
             regions: Регионы
             tours: Туры
             users: Пользователи
+            experts: Управление экспертами
+            moderators: Управление модераторами
             competitions: Конкурсы
             menu: Меню
+
   web:
     admin:
       welcome:
@@ -89,11 +93,39 @@ ru:
           title: Редактировать регион
         form:
           cancel: *cancel
+      experts:
+        works:
+          index:
+            title: "Назначение работ эксперту"
+            add_to_expert_basket: "Добавить в корзину эксперта"
+            view_work: "Просмотреть работу"
+          show:
+            title: "Просмотр работы"
+            experts: "Эксперты"
+            estimations: "Оценки"
+        nominations:
+          index:
+            title: "Привязка номинаций эксперту"
+        index:
+          confirm: *confirm
+          title: &experts Эксперты
+          new: *new
+          work_nominations_list: "Номинации эксперта"
+          works_list: "Корзина эксперта"
       users:
         index:
+          choose: "Выберите..."
+          find_users: "Отфильтровать"
           confirm: *confirm
           title: &users Пользователи
           new: *new
+          expert_invite: Назначить экспертом
+          moderator_invite: "Назначить модератором"
+          roles: 
+            admin: "Админ"
+            expert: "Эксперт"
+            moderator: "Модератор"
+            participant: "Участник"
         new:
           title: Добавить пользователя
         edit:
@@ -124,7 +156,20 @@ ru:
         my_accounts: Мои аккаунты
         
   activerecord:
+    models: 
+      expert: "Эксперт"
+      moderator: "Модератор"
+      admin: "Админ"
+      user: "Пользователь"
     attributes:
+      expert:
+        first_name: "Имя"
+        last_name: "Фамилия"
+        email: "email"
+      estimation:
+        content: "Содержание"
+        decoration: "Оформление"
+        technology_usage: "Технологичность"
       user:
         email: "Email"
         password: "Пароль"
@@ -133,6 +178,7 @@ ru:
         first_name: "Имя"
         patronymic: "Отчество"
         remember_me: "Запомнить меня"
+        role: "Роль"
       work:
         name: Название работы
         image: Обложка

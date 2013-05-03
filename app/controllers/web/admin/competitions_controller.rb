@@ -7,8 +7,9 @@ class Web::Admin::CompetitionsController < Web::Admin::ApplicationController
 
   def new
     @competition = Competition.new
+    @commpetition.assign_attributes params[:competition]
     tours = @competition.tours.map(&:name)
-    tours_names = ["Школьный", "Городской", "Областной"]
+    tours_names = ["Школьный", "Муниципальный", "Региональный"]
     if tours.size < tours_names.size
       tours_names.each{|tour_name| @competition.tours.build(name: tour_name) if tours.exclude?(tour_name)}
     end
@@ -30,7 +31,7 @@ class Web::Admin::CompetitionsController < Web::Admin::ApplicationController
       redirect_to admin_competitions_path
     else
     tours = @competition.tours.map(&:name)
-    tours_names = ["Школьный", "Городской", "Областной"]
+    tours_names = ["Школьный", "Муниципальный", "Региональный"]
     if tours.size < tours_names.size
       tours_names.each{|tour_name| @competition.tours.build(name: tour_name) if tours.exclude?(tour_name)}
     end
@@ -47,7 +48,7 @@ class Web::Admin::CompetitionsController < Web::Admin::ApplicationController
       redirect_to edit_admin_competition_path(@competition)
     else
     tours = @competition.tours.map(&:name)
-    tours_names = ["Школьный", "Городской", "Областной"]
+    tours_names = ["Школьный", "Муниципальный", "Региональный"]
     if tours.size < tours_names.size
       tours_names.each{|tour_name| @competition.tours.build(name: tour_name) if tours.exclude?(tour_name)}
     end

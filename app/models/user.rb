@@ -9,13 +9,26 @@ class User < ActiveRecord::Base
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable, :omniauthable
 
-  attr_accessible :email, :password, :password_confirmation, :remember_me, :role, :first_name,
+  attr_accessible :email, :password, :password_confirmation, :remember_me, :type, :first_name,
                   :last_name, :patronymic
 
-  ROLES = %w[user expert moderator admin]
+  ROLES = %w[User Expert Moderator Admin]
 
-  def role?(base_role)
-    ROLES.index(base_role.to_s) <= ROLES.index(role)
+  def role?(_type)
+    type == _type.to_s.capitalize
+  end
+
+  def expert?
+    type == :Expert
+  end
+
+  def role
+    return :user if type.nil?
+    type.downcase
+  end
+
+  def has_privileges?
+    return role?(:admin) || role?(:moderator)
   end
 
   def to_s

@@ -1,4 +1,5 @@
 class Competition < ActiveRecord::Base
+  include CompetitionRepository
   attr_accessible :name, :year, :state_event, :tours, :tours_attributes, :tour_ids, :condition, :report, :work_nomination_ids
   has_many :tours
   has_one :report
@@ -8,7 +9,6 @@ class Competition < ActiveRecord::Base
   #has_many :competition_work_nomination_relations, dependent: :destroy, class_name: ::CompetitionWorkNominationRelations
   
   validates :name, :presence => true
-
   state_machine :state, initial: :closed do
     state :hidden
     state :closed

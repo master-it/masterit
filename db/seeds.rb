@@ -7,7 +7,10 @@
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
-User.create(email: configus.admin.email, password: configus.admin.password, role: configus.admin.role)
+Admin.create(email: configus.admin.email, password: configus.admin.password)
+Expert.create(first_name: 'Expert', last_name: 'Expert', patronymic: "Expert", email: "expert@yandex.ru", password: '12345678')
+Moderator.create(first_name: 'Moderator', last_name: 'Moderator', patronymic: "Moderator", email: 'moderator@yandex.ru', password: '12345678')
+Participant.create(first_name: 'User', last_name: 'User', patronymic: "User", email: 'participant@yandex.ru', password: '12345678')
 work_nominations = ["Тематический сайт","2-мерная статичная графика","3-мерная статичная графика",
 "Анимационный ролик - 2-х мерная графика", "Анимационный ролик - 3-х мерная графика", "Электронные учебные пособия",
 "Презентация в программе  PowerPoint","Презентация с использованием программ (Flash, Movie Maker и т.п)",
@@ -16,6 +19,16 @@ work_nominations = ["Тематический сайт","2-мерная стат
 "IT-интеграция – номинация, объединяющая не менее трех  побед в разных номинациях (для выдающихся участников)",
 "Реклама к юбилею Конкурса (видеоролики, графика и т.д.)"]
 work_nominations.each { |work_nomination| WorkNomination.create(name: work_nomination) }
+Work.create(name: "work", description: "describtion")
+Work.create(name: "new_work", description: "new_describtion")
+Work.create(name: "new_new_work", description: "new_new_describtion")
+competition = Competition.new
+competition.year = Time.current.year
+competition.name = "MasterIT #{competition.year}"
+competition.start
+tours_names = ["Школьный", "Муниципальный", "Региональный"]
+tours_names.each{|tour_name| competition.tours.build(name: tour_name)}
+competition.save!
 m = MenuItem.create(title: "Главная")
 p = m.pages.create(title: "Добро пожаловать на Мастер-ИТ!", body: "Добро пожаловать на Мастерит! Если ты админ, зайди в админку и исправь главную страницу")
 p.publish

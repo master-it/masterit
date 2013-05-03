@@ -4,6 +4,9 @@ class Ability
   def initialize(user)
     user ||= User.new
 
+    if user.type.nil?
+      can :read, :all
+    end
     if user.role? :expert
       can :manage, [Estimation, Basket]
     end
@@ -14,8 +17,6 @@ class Ability
     if user.role? :admin
       can :access, :rails_admin
       can :dashboard
-    else
-      can :read, :all
     end
   end
 end

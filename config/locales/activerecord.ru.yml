@@ -4,7 +4,7 @@
 ru:
   activerecord:
     models:
-      competition: "конкурс"
+      competition: "Конкурс"
     state_machines:
       states:
         hidden: Скрыто
