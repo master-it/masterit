@@ -1,3 +1,7 @@
+= simple_form_for @export, method: :put, url: send_invite_to_expert_admin_expert_path do |f|
+  = f.input :email
+  = button_tag t('.expert_invite'), :class => 'btn btn-primary'
+
 %table.table.table-striped
   %thead
     %tr

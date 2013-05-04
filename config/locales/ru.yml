@@ -96,6 +96,7 @@ ru:
       moderators:
         index:
           title: "Работы с модераторами"
+          moderator_invite: Отправить приглошение Модератору
         regions:
           index:
             title: "Назначение района модератору"
@@ -116,6 +117,7 @@ ru:
           confirm: *confirm
           title: &experts Эксперты
           new: *new
+          expert_invite: Отправить приглошение Эксперту
           work_nominations_list: "Номинации эксперта"
           works_list: "Корзина эксперта"
       users:

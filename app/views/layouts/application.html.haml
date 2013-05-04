@@ -26,8 +26,8 @@
               - if user_signed_in?
                 - if current_user.has_privileges?
                   - if current_user.role? :admin
-                    %li= link_to "Управление данными", rails_admin_path
-                  %li= link_to "Админка", admin_root_path
+                    -#%li= link_to "Управление данными", rails_admin_path
+                    %li= link_to "Админка", admin_root_path
                 %li.dropdown
                   %a.dropdown-toggle{ data: {toggle: 'dropdown'}, href: '#' }
                     = t('.catalog_works')

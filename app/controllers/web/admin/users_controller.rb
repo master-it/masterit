@@ -5,7 +5,7 @@ class Web::Admin::UsersController < Web::Admin::ApplicationController
     @users = @q.result.page(params[:page])
     respond_with @users, location: admin_users_path
   end
-
+  
   def invite_to_expert
     @user = User.find params[:participant][:id]
     @user.type = :expert.to_s.capitalize

@@ -23,7 +23,7 @@ Masterit::Application.routes.draw do
     post "users/omniauth_callbacks", :to => "users/omniauth_callbacks#registration"
   end
 
-  mount RailsAdmin::Engine => '/rails_admin', :as => 'rails_admin'
+  mount RailsAdmin::Engine => '/admin/rails_admin', :as => 'rails_admin'
 
   #root :to => "web/welcome#index"
 
@@ -77,6 +77,16 @@ Masterit::Application.routes.draw do
               put :remove_region_from_moderator
             end
           end
+        end
+      end
+      resource :expert do 
+        member do
+          put :send_invite_to_expert
+        end
+      end
+      resource :moderator do 
+        member do
+          put :send_invite_to_moderator
         end
       end
       resource :user, only: [] do
