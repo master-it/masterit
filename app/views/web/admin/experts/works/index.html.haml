@@ -21,8 +21,8 @@
               class: 'btn btn-mini' do
               %i.icon-shopping-cart
           -else
-            = link_to remove_work_from_expert_admin_expert_work_path(@expert.id, work.id),
+            = link_to remove_works_from_expert_admin_expert_work_path(@expert.id, work.id),
               method: :put,
-              title:  t('Удалить работу у эксперта'),
+              title: 'Удалить работу у эксперта',
               class: 'btn btn-mini btn-danger' do
               %i.icon-shopping-cart

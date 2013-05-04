@@ -9,6 +9,13 @@ class Web::Admin::Experts::WorksController < Web::Admin::Experts::ApplicationCon
     @work = Work.find_by_id params[:id]
     respond_with @work, location: admin_expert_work_path
   end
+  def remove_works_from_expert
+    @expert = User.find params[:expert_id]
+    work = Work.find params[:id]
+    @expert.basket.works.delete work
+    @expert.save!
+    respond_with @works, location: admin_expert_works_path
+  end
   def set_works_to_expert
     @expert = User.find params[:expert_id]
     @expert.basket = Basket.new if @expert.basket.nil?

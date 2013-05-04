@@ -93,6 +93,12 @@ ru:
           title: Редактировать регион
         form:
           cancel: *cancel
+      moderators:
+        index:
+          title: "Работы с модераторами"
+        regions:
+          index:
+            title: "Назначение района модератору"
       experts:
         works:
           index:

@@ -1,4 +1,7 @@
 module ApplicationHelper
+  def moderator_has_region?(moderator, region)
+    moderator.region == region
+  end
   def progress_value(estimation_value)
     value = estimation_value / 10.0 * 100
     value.to_i

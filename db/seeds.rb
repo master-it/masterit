@@ -19,14 +19,19 @@ work_nominations = ["Тематический сайт","2-мерная стат
 "IT-интеграция – номинация, объединяющая не менее трех  побед в разных номинациях (для выдающихся участников)",
 "Реклама к юбилею Конкурса (видеоролики, графика и т.д.)"]
 work_nominations.each { |work_nomination| WorkNomination.create(name: work_nomination) }
-Work.create(name: "work", description: "describtion")
-Work.create(name: "new_work", description: "new_describtion")
-Work.create(name: "new_new_work", description: "new_new_describtion")
+works = []
+works <<  Work.create(name: "work", description: "describtion")
+works << Work.create(name: "new_work", description: "new_describtion")
+works << Work.create(name: "new_new_work", description: "new_new_describtion")
 competition = Competition.new
 competition.year = Time.current.year
-competition.name = "MasterIT #{competition.year}"
-competition.start
+competition.name = "MasterIT 2013"
 competition.save!
+regions = ['Заволжский', 'Ленинский', 'Железнодорожный', 'Засвияжский']
+regions.each{|region| Region.new(name: region).save!}
+region = Region.find_by_name('Ленинский')
+region.works = works
+region.save!
 m = MenuItem.create(title: "Главная")
 p = m.pages.create(title: "Добро пожаловать на Мастер-ИТ!", body: "Добро пожаловать на Мастерит! Если ты админ, зайди в админку и исправь главную страницу")
 p.publish

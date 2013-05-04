@@ -1,5 +1,4 @@
 class Moderator < User
-
-  attr_accessible :email, :password, :password_confirmation, :remember_me
-  belongs_to :region
+  has_one :region
+  attr_accessible :email, :region, :region_attributes, :password, :password_confirmation, :remember_me
 end

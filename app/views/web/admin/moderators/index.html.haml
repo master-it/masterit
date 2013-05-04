@@ -12,7 +12,7 @@
         %td= moderator.last_name
         %td= moderator.email
         %td
-          = link_to admin_moderator_regions_path(expert.id),
+          = link_to admin_moderator_regions_path(moderator.id),
             title:  'Список регионов',
             class: 'btn btn-mini' do
             %i.icon-folder-close
