@@ -20,3 +20,9 @@
               title:  t('.add_to_expert_basket'),
               class: 'btn btn-mini' do
               %i.icon-shopping-cart
+          -else
+            = link_to remove_work_from_expert_admin_expert_work_path(@expert.id, work.id),
+              method: :put,
+              title:  t('Удалить работу у эксперта'),
+              class: 'btn btn-mini btn-danger' do
+              %i.icon-shopping-cart

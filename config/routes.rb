@@ -58,12 +58,23 @@ Masterit::Application.routes.draw do
           resources :works, only: [:index, :show] do
             member do
               put :set_works_to_expert
+              put :remove_works_from_expert
             end
           end
           resources :nominations, only: [:index, :show] do
             member do
               put :set_nomination_to_expert
               put :remove_nomination_from_expert
+            end
+          end
+        end
+      end
+      resources :moderators, only: [:index, :show] do
+        scope module: :moderators do
+          resources :regions, only: [:index, :show] do
+            member do
+              put :set_region_to_moderator
+              put :remove_region_from_moderator
             end
           end
         end

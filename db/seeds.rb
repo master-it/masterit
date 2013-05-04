@@ -26,8 +26,6 @@ competition = Competition.new
 competition.year = Time.current.year
 competition.name = "MasterIT #{competition.year}"
 competition.start
-tours_names = ["Школьный", "Муниципальный", "Региональный"]
-tours_names.each{|tour_name| competition.tours.build(name: tour_name)}
 competition.save!
 m = MenuItem.create(title: "Главная")
 p = m.pages.create(title: "Добро пожаловать на Мастер-ИТ!", body: "Добро пожаловать на Мастерит! Если ты админ, зайди в админку и исправь главную страницу")
