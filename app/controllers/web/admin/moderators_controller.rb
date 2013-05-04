@@ -9,7 +9,7 @@ class Web::Admin::ModeratorsController < Web::Admin::ApplicationController
     respond_with @moderators, location: admin_moderators_path
   end
   
-  def send_invite_to_expert
+  def send_invite_to_moderator
     @moderator = User.new params[:user]
     @moderator.type = "Moderator"
     @pwd = SecureRandom.hex(8)
