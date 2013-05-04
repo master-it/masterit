@@ -36,10 +36,20 @@ Masterit::Application.routes.draw do
     end
     namespace :moderator do
       resources :works, only: [:index, :show, :edit]
-      resources :work_nominations, only: [:index, :show, :edit]
-      resources :experts, only: [] do
-        collection do
-          put :forming_basket
+      resources :experts, only: [:index, :show] do
+        scope module: :experts do
+          resources :works, only: [:index, :show] do
+            member do
+              put :set_works_to_expert
+              put :remove_works_from_expert
+            end
+          end
+          resources :nominations, only: [:index, :show] do
+            member do
+              put :set_nomination_to_expert
+              put :remove_nomination_from_expert
+            end
+          end
         end
       end
     end
@@ -104,7 +114,14 @@ Masterit::Application.routes.draw do
 
     resources :competitions, only: [:index, :show] do
       scope module: :competitions do
-        resources :work_nominations, only: [:index, :show]
+        resources :work_nominations, only: [:index, :show] do
+          member do
+            get :new_plagiat
+            put :plagiat_send
+            put :remove_plagiat
+            put :edit_plagiat
+          end
+        end
       end
     end
     resources :pages, only: [:show]

@@ -7,6 +7,8 @@ class Work < ActiveRecord::Base
   has_many :images, :dependent => :destroy
   has_many :estimations
   has_many :experts, through: :estimations
+  has_many :plagiat_details
+  has_many :users, through: :plagiat_details
 
   belongs_to :tour
   belongs_to :region

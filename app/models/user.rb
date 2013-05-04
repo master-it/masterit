@@ -2,6 +2,8 @@ class User < ActiveRecord::Base
 
   has_many :authorizations, :dependent => :destroy
   has_many :works
+  has_many :plagiat_details
+  has_many :works, through: :plagiat_details
 
   # Include default devise modules. Others available are:
   # :token_authenticatable, :confirmable,
@@ -18,6 +20,12 @@ class User < ActiveRecord::Base
     type == _type.to_s.capitalize
   end
 
+  def can_ban?(work)
+    if plagiat_details.empty? 
+      return true
+    end
+    plagiat_details.where("work_id = ?", work.id) == nil
+  end
   def expert?
     type == :Expert
   end

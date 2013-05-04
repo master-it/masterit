@@ -21,6 +21,26 @@
               = "Регион: #{Region.find(work.region_id)}"
               %br
               = "Тур: #{Tour.find(work.tour_id)}"
+              - if current_user.can_ban?(work)
+                %br
+                = link_to plagiat_detailing_competition_work_nomination_path(work),
+                  method: :put,
+                  title:  'Пожаловаться на плагиат',
+                  class: 'btn btn-mini' do
+                  %i.icon-bell
+              - else
+                %br
+                = link_to remove_plagiat_competition_work_nomination_path(work),
+                  method: :put,
+                  title:  'Удалить жалобу',
+                  class: 'btn btn-mini btn-danger' do
+                  %i.icon-remove-circle
+                = link_to edit_plagiat_competition_work_nomination_path(work),
+                  method: :put,
+                  title:  'Редактировать жалобу',
+                  class: 'btn btn-mini ' do
+                  %i.icon-pencil
+
 -#= paginate @works
     
 -#= paginate @work_nominations

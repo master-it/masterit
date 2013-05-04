@@ -1,4 +1,4 @@
-class Web::Admin::WorksController < Web::Admin::ApplicationController
+class Web::Expert::WorksController < Web::Expert::ApplicationController
   def index
     @q = WorkCreateType.ransack params[:q]
     @works = @q.result.page(params[:page])
