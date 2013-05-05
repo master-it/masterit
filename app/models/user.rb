@@ -2,6 +2,9 @@ class User < ActiveRecord::Base
 
   has_many :authorizations, :dependent => :destroy
   has_many :works
+  has_many :posts
+
+  acts_as_inkwell_user
 
   # Include default devise modules. Others available are:
   # :token_authenticatable, :confirmable,
@@ -20,6 +23,10 @@ class User < ActiveRecord::Base
   
   def to_s
     [last_name, first_name].compact.join(" ")
+  end
+
+  def to_s
+    "#{last_name} #{first_name}"
   end
 
 end

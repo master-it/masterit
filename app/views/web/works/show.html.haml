@@ -11,3 +11,5 @@
     = "Тур: #{Tour.find(@work.tour_id)}"
     %br
     != @work.description
+
+= render template:'comments/index' , work: @work, post: @post

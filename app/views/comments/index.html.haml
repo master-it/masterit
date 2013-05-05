@@ -1,0 +1,19 @@
+%h4= t(".comments")
+.row
+  .span10
+    -@comments.try(:each) do |comment|
+      = "#{comment.user.last_name} #{comment.user.first_name}"
+      = comment.updated_at.strftime("%d.%m.%Y %H:%M")
+      -if comment.user_id == current_user.id
+        = link_to comment_path(id: comment, work_id: @work), :method => :delete do
+          %i.icon-trash
+      .row
+        .span10
+          = comment.body
+  .span10
+    %h4= "Оставьте комментарий"
+  .span10
+    -if current_user
+      =render 'comments/form', work: @work, comments: @comments
+    -else
+      %h6= "Чтобы оставить комментарий - войдите в систему"

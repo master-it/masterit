@@ -40,5 +40,6 @@ Masterit::Application.routes.draw do
     resources :pages, only: [:show]
     resources :users, only: [:show, :edit, :update]
     resources :works
+    resources :comments
   end
 end
