@@ -14,15 +14,15 @@
             %ul.nav.pull-right
               - if user_signed_in?
                 - if current_user.role? :admin
-                  =render 'layouts/web/admin/shared/models_management'
+                  = render 'layouts/web/admin/shared/models_management'
 
                 %li= link_to "#{current_user.email}", user_path(current_user)
-                %li= link_to "Выход", destroy_user_session_path, :method => :delete
+                %li= link_to "Выход", destroy_user_session_path, method: :delete
               - else
                 %li= link_to "Вход", new_user_session_path
 
     - if user_signed_in?
-      - if current_user.role? :admin
+      - if current_user.has_privileges?
         .container
           .content
             = render 'layouts/web/admin/shared/title'
