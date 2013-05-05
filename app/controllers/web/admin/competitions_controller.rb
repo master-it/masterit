@@ -7,7 +7,7 @@ class Web::Admin::CompetitionsController < Web::Admin::ApplicationController
 
   def new
     @competition = Competition.new
-    @commpetition.assign_attributes params[:competition]
+    @competition.assign_attributes params[:competition]
     tours = @competition.tours.map(&:name)
     tours_names = ["Школьный", "Муниципальный", "Региональный"]
     if tours.size < tours_names.size
@@ -25,16 +25,17 @@ class Web::Admin::CompetitionsController < Web::Admin::ApplicationController
   end
 
   def create
-    @competition = Competition.new params[:competition]
+    @competition = Competition.new
+    @competition.assign_attributes params[:competition]
     if @competition.save
       flash_success
       redirect_to admin_competitions_path
     else
-    tours = @competition.tours.map(&:name)
-    tours_names = ["Школьный", "Муниципальный", "Региональный"]
-    if tours.size < tours_names.size
-      tours_names.each{|tour_name| @competition.tours.build(name: tour_name) if tours.exclude?(tour_name)}
-    end
+      tours = @competition.tours.map(&:name)
+      tours_names = ["Школьный", "Муниципальный", "Региональный"]
+      if tours.size < tours_names.size
+        tours_names.each{|tour_name| @competition.tours.build(name: tour_name) if tours.exclude?(tour_name)}
+      end
       flash_error
       render action: :new
     end

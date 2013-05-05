@@ -6,11 +6,7 @@
     .tab-pane#main.active
       = f.input :state_event, as: :state_event
       = f.input :name
-      = f.input :year , as: :date, discard_day: true,
-                        order:[:year],
-                        start_year: 1950,
-                        end_year:  Date.today.year + 10,
-                        include_blank: false
+      = f.input :year , as: :date, discard_day: true, discard_month: true, start_year: 1950, end_year: 2100
     .tab-pane#tours
       = f.simple_fields_for :tours do |t|
         = render 'tour_fields', :f => t
