@@ -20,10 +20,12 @@ class Web::Admin::Experts::WorksController < Web::Admin::Experts::ApplicationCon
     @expert = User.find params[:expert_id]
     @expert.basket = Basket.new if @expert.basket.nil?
     work = Work.find params[:id]
-    estimation = Estimation.new
-    work.estimations << estimation
-    work.save!
-    @expert.estimations << estimation
+    if (work.estimations.where("expert_id = ?", @expert.id).first.nil?)
+      estimation = Estimation.new
+      work.estimations << estimation
+      work.save!
+      @expert.estimations << estimation
+    end
     @expert.basket.works << work
     @expert.save!
     respond_with @works, location: admin_expert_works_path

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130504162638) do
+ActiveRecord::Schema.define(:version => 20130505064220) do
 
   create_table "authorizations", :force => true do |t|
     t.string   "provider"
@@ -102,6 +102,15 @@ ActiveRecord::Schema.define(:version => 20130504162638) do
     t.datetime "created_at",   :null => false
     t.datetime "updated_at",   :null => false
     t.integer  "menu_item_id"
+  end
+
+  create_table "plagiat_details", :force => true do |t|
+    t.string   "url"
+    t.text     "message"
+    t.integer  "work_id"
+    t.integer  "user_id"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
   end
 
   create_table "rails_admin_histories", :force => true do |t|
@@ -204,6 +213,7 @@ ActiveRecord::Schema.define(:version => 20130504162638) do
     t.integer  "basket_id"
     t.string   "plagiat_state"
     t.string   "estimate_state"
+    t.integer  "participant_id"
   end
 
 end

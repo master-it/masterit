@@ -31,11 +31,25 @@ Masterit::Application.routes.draw do
     root :to => 'welcome#index'
 
     namespace :expert do
-      resources :works, only: [:index, :show]
-      resources :work_nominations, only: [:index, :show, :edit]
+      root to: "welcome#index"
+      resources :works, only: [:index, :show] do
+        member do
+          put :remove_from_basket
+          put :trigger_estimate
+        end
+      end
+      resources :estimations, only: [:edit, :update]
+      resources :work_nominations, only: [:index]
     end
     namespace :moderator do
-      resources :works, only: [:index, :show, :edit]
+      root to: "welcome#index"
+      resources :works, only: [:index, :show] do
+        member do
+          put :trigger_plagiat
+        end
+      end
+      resources :users, only: [:index]
+      resources :plagiat_details, only: [:index]
       resources :experts, only: [:index, :show] do
         scope module: :experts do
           resources :works, only: [:index, :show] do
@@ -115,12 +129,7 @@ Masterit::Application.routes.draw do
     resources :competitions, only: [:index, :show] do
       scope module: :competitions do
         resources :work_nominations, only: [:index, :show] do
-          member do
-            get :new_plagiat
-            put :plagiat_send
-            put :remove_plagiat
-            put :edit_plagiat
-          end
+          resource :plagiat_details, only: [:destroy, :new, :create, :edit, :update]
         end
       end
     end

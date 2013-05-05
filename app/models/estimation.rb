@@ -8,8 +8,8 @@ class Estimation < ActiveRecord::Base
   belongs_to :expert
   private
     def default_values
-      self.content = 1
-      self.decoration = 1
-      self.technology_usage = 1
+      self.content = 1 unless self.content
+      self.decoration = 1 unless self.decoration
+      self.technology_usage = 1 unless self.technology_usage
     end
 end

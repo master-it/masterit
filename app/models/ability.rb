@@ -12,7 +12,9 @@ class Ability
       can :read, :all
     end
     if user.role? :expert
-      can :manage, [Estimation, Basket]
+      can :manage, [Work, WorkNomination, Estimation, Basket]
+      can :read, [Work, WorkNomination, Estimation, Basket]
+      can :access, [Work, WorkNomination, Estimation, Basket]
     end
     if user.role? :moderator
       can :manage, :all

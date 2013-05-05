@@ -6,7 +6,17 @@ ru:
     models:
       competition: "Конкурс"
     state_machines:
+      work:
+        plagiat_state:
+          states:
+            banned: "Является плагиатом"
+            passing: "Не имеет аналогов"
+        estimate_state:
+          states:
+            estimated: "Оценено"
+            on_estimating: "Оценивается"
       states:
+        estimated: 
         hidden: Скрыто
         published: Опубликовано
       state_events:

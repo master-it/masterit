@@ -1,17 +1,26 @@
 class Web::Expert::WorksController < Web::Expert::ApplicationController
   def index
-    @q = WorkCreateType.ransack params[:q]
-    @works = @q.result.page(params[:page])
+    @works = current_user.basket.works
+    respond_with @works, location: expert_works_path
   end
-  def estimate
-    @work = WorkCreateType.find params[:id]
-
-    if @work.update_attributes params[:work]
-      flash_success
-      redirect_to edit_admin_work_nomination_path(@work)
+  def show
+    @work = Work.find_by_id params[:id]
+    respond_with @work, location: expert_work_path
+  end
+  def trigger_estimate
+    work = Work.find_by_id params[:id]
+    if work.estimate_state_estimated?
+      work.prepare_estimate_state
     else
-      flash_error
-      render action: :edit
+      work.estimate_estimate_state
     end
+    @works = current_user.basket.works
+    respond_with @works, location: expert_works_path
+  end
+  def remove_from_basket
+    @work = Work.find_by_id params[:id]
+    current_user.basket.works.delete @work
+    @works = current_user.basket.works
+    respond_with @works, location: expert_works_path
   end
 end

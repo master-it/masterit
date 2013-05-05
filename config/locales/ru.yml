@@ -19,8 +19,75 @@ ru:
             moderators: Управление модераторами
             competitions: Конкурсы
             menu: Меню
+      expert:
+        shared:
+          works_management:
+            works: "Корзина эксперта"
+            work_nominations: "Обзор номинаций"
+      moderator:
+        shared:
+          works_management:
+            works: "Обзор работ"
+            users: "Работа с пользователями"
+            experts: "Управление экспертами"
 
   web:
+    moderator:
+      works:
+        index: 
+          title: "Модерация работ"
+        show:
+          title: "Обзор жалоб на плагиат"
+          plagiat_url: "Ссылки на оригинальную работу"
+          plagiat_message: "Сообщения о плагиате"
+          users: "Сообщившие о плагиате"
+      users:
+        index:
+          choose: "Выберите..."
+          find_users: "Отфильтровать"
+          confirm: *confirm
+          title: &users Пользователи
+          new: *new
+          expert_invite: Назначить экспертом
+          moderator_invite: "Назначить модератором"
+          roles: 
+            admin: "Админ"
+            expert: "Эксперт"
+            moderator: "Модератор"
+            participant: "Участник"
+      experts:
+        works:
+          index: 
+            title: "Назначение работ эксперту"
+        nominations:
+          index: 
+            title: "Назначение номинаций эксперту"
+        index:
+          title: "Управление экспертами"
+          expert_invite: "Пригласить эксперта"
+          works_list: "Список работ"
+          work_nominations_list: "Список номинаций"
+      welcome:
+        index:
+          title: "Добро пожаловать, модератор"
+    expert:
+      welcome:
+        index:
+          title: "Добро пожаловать, эксперт!!!"
+      estimations:
+        edit:
+          finish: "Оценить"
+          title: "Оценка работы"
+      work_nominations:
+        index:
+          title: "Обзор номинаций"
+      works:
+        index:
+          title: "Корзина эксперта"
+        show:
+          experts: "Эксперты"
+          estimations: "Оценки"
+          title: "Состояние работы"
     admin:
       welcome:
         index:
@@ -197,6 +264,8 @@ ru:
         tour: Тур
         region: Регион
         user_id: Пользователь
+        estimate_state: "Статус оценки"
+        plagiat_state: "Статус допуска"
       work_nomination:
         name: Название номинации
         state: Статус
