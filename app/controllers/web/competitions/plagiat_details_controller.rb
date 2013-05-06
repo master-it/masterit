@@ -39,7 +39,7 @@ class Web::Competitions::PlagiatDetailsController < Web::Competitions::Applicati
   end
   def destroy
     @competition = Competition.find(params[:competition_id])
-    @work_nomination = Competition.find(params[:work_nomination_id])
+    @work_nomination = WorkNomination.find(params[:work_nomination_id])
     @plagiat_detail = PlagiatDetail.find params[:plagiat_id]
     @plagiat_detail.destroy
     redirect_to competition_work_nomination_path(@competition, @work_nomination) 
