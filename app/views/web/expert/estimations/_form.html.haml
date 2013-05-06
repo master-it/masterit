@@ -1,7 +1,7 @@
 = simple_form_for @estimation, url: url, :html => { class: 'default_class' } do |f|
-  = f.input :content
-  = f.input :decoration
-  = f.input :technology_usage
+  = f.input :content, collection: 1..10, prompt: "ВЫберите оценку"
+  = f.input :decoration, collection: 1..10, prompt: "Выберите оценку"
+  = f.input :technology_usage, collection: 1..10, prompt: "Выберите оценку"
   .form-actions
     = f.button :submit, value: 'Оценить', class: 'btn btn-primary'
     = link_to "Перейти в корзину", expert_works_path, class: 'btn'

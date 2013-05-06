@@ -1,6 +1,7 @@
 class Web::Expert::WorksController < Web::Expert::ApplicationController
   def index
-    @works = current_user.basket.works
+
+    @works = current_user.basket.nil? ? [] : current_user.basket.works
     respond_with @works, location: expert_works_path
   end
   def show

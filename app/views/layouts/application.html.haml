@@ -31,13 +31,14 @@
                   %li= link_to "Оценка работ", expert_root_path
                 - if current_user.role? :moderator
                   %li= link_to "Управление районом", moderator_root_path
-                %li.dropdown
-                  %a.dropdown-toggle{ data: {toggle: 'dropdown'}, href: '#' }
-                    = t('.catalog_works')
-                    %b.caret
-                  %ul.dropdown-menu
-                    - Competition.all.each do |c|
-                      = item :li, c, competition_work_nominations_path(c)
+                -if Competition.current.present? && Competition.current.started?
+                  %li.dropdown
+                    %a.dropdown-toggle{ data: {toggle: 'dropdown'}, href: '#' }
+                      = t('.catalog_works')
+                      %b.caret
+                    %ul.dropdown-menu
+                      - Competition.all.each do |c|
+                        = item :li, c, competition_work_nominations_path(c)
                 %li= link_to "#{current_user.email}", user_path(current_user)
                 %li= link_to "Выход", destroy_user_session_path, :method => :delete
               - else
