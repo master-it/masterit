@@ -28,7 +28,7 @@ class Web::Admin::RegionsController < Web::Admin::ApplicationController
 
     if @region.update_attributes params[:region]
       flash_success
-      redirect_to edit_admin_region_path(@region)
+      redirect_to admin_regions_path
     else
       flash_error
       render action: :edit

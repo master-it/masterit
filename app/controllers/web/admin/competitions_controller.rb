@@ -46,7 +46,7 @@ class Web::Admin::CompetitionsController < Web::Admin::ApplicationController
 
     if @competition.update_attributes params[:competition]
       flash_success
-      redirect_to edit_admin_competition_path(@competition)
+      redirect_to admin_competitions_path(@competition)
     else
     tours = @competition.tours.map(&:name)
     tours_names = ["Школьный", "Муниципальный", "Региональный"]

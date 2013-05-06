@@ -28,7 +28,7 @@ class Web::Admin::WorkNominationsController < Web::Admin::ApplicationController
 
     if @work_nomination.update_attributes params[:work_nomination]
       flash_success
-      redirect_to edit_admin_work_nomination_path(@work_nomination)
+      redirect_to admin_work_nominations_path
     else
       flash_error
       render action: :edit
