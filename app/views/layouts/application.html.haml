@@ -31,7 +31,7 @@
                   %li= link_to "Оценка работ", expert_root_path
                 - if current_user.role? :moderator
                   %li= link_to "Управление районом", moderator_root_path
-                -if Competition.current.present? && Competition.current.started?
+                -if Competition.current.first.present? && Competition.current.first.started?
                   %li.dropdown
                     %a.dropdown-toggle{ data: {toggle: 'dropdown'}, href: '#' }
                       = t('.catalog_works')

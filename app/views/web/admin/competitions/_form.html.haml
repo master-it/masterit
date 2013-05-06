@@ -7,6 +7,7 @@
       = f.input :state_event, as: :state_event
       = f.input :name
       = f.input :year, collection: Time.current.year..Time.current.year + 20, prompt: "Выберите год"
+      = f.association :work_nominations
     .tab-pane#tours
       = f.simple_fields_for :tours do |t|
         = render 'tour_fields', :f => t
