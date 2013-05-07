@@ -1,4 +1,10 @@
 = simple_form_for @estimation, url: url, :html => { class: 'default_class' } do |f|
+  %h3= @work.name
+  %p= @work.description
+  %p= @work.tour
+  %p= @work.work_nomination
+  %br
+  %br
   = f.input :content, collection: 1..10, prompt: "ВЫберите оценку"
   = f.input :decoration, collection: 1..10, prompt: "Выберите оценку"
   = f.input :technology_usage, collection: 1..10, prompt: "Выберите оценку"

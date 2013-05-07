@@ -1,6 +1,7 @@
 class Web::Expert::EstimationsController < Web::Expert::ApplicationController
   def edit
     @estimation = Estimation.find params[:id]
+    @work = @estimation.work
   end
   def update
     @estimation = Estimation.find params[:id]
