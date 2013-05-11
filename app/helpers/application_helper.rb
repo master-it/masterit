@@ -3,10 +3,10 @@ module ApplicationHelper
     work.estimations.where("expert_id = ?", current_user.id).first
   end
   def plagiat(work, user)
-    user.plagiat_details.where("work_id = ?", work.id).first
+    user.plagiat_details.where("work_id = ?", work.id).first.id
   end
   def moderator_has_region?(moderator, region)
-    moderator.region == region
+    moderator.id == region.moderator_id
   end
   def progress_value(estimation_value)
     value = estimation_value / 10.0 * 100

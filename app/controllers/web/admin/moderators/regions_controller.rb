@@ -20,8 +20,10 @@ class Web::Admin::Moderators::RegionsController < Web::Admin::Moderators::Applic
     @moderator = User.find params[:moderator_id]
     @regions = @q.result.page(params[:page])
     region = Region.find params[:id]
+    region.moderator_id = @moderator.id
+    region.save!
     @moderator.region = region
-    @moderator.save!
+    @moderator.save
     respond_with @regions, location: admin_moderator_regions_path(moderator_id: params[:moderator_id])
   end
 end
