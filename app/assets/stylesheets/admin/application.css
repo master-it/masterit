@@ -10,18 +10,9 @@
  *
  *= require bootstrap_and_overrides
  *= require jquery.ui.datepicker
- *= require select2
  *= require_self
  *= require bootstrap-progressbar
  */
-.navbar-fixed-top, .navbar-fixed-bottom {
-  position: static;
-  margin-bottom: 20px;
-}
-
-.select2 {
-  width: 220px;
-}
 
 .sortable tr{
     cursor: move;

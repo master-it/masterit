@@ -1,3 +1,5 @@
+- content_for :header do
+  = t('.users')
 .tabbable
   %ul.nav.nav-tabs
     %li.active= link_to t('.info'), '#info', data: { toggle: 'tab' }
@@ -6,12 +8,9 @@
 
   .tab-content
     .tab-pane.active#info
-      %h3= t('.users')
-      .row
-        .span8
-          = link_to t(".user_edit"), edit_user_path
-          %br
-          = link_to t(".registrate_work"), new_work_path
+      = link_to t(".user_edit"), edit_user_path
+      %br
+      = link_to t(".registrate_work"), new_work_path
     .tab-pane#my_works
       -#= link_to t(".works"), works_path
     .tab-pane#my_accounts

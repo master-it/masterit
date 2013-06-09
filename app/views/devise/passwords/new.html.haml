@@ -1,8 +1,14 @@
-%h2 Forgot your password?
+%h4.header.red.lighter.bigger
+  %i.icon-key
+  Retrieve Password
+.space-6
 = simple_form_for(resource, :as => resource_name, :url => password_path(resource_name), :html => { :method => :post }) do |f|
   = f.error_notification
   .form-inputs
-    = f.input :email, :required => true, :autofocus => true
-  .form-actions
-    = f.button :submit, "Send me reset password instructions"
+    %span.block.input-icon.input-icon-right
+      = f.input_field :email, :required => true, :autofocus => true, class: "span12"
+      %i.icon-envelope
+  .row-fluid
+    = f.button :submit, "Send me reset password instructions", class: "btn btn-small btn-danger"
+%br/
 = render "devise/shared/links"

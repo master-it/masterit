@@ -1,13 +1,27 @@
-%h2 Регистрация
+%h4.header.green.lighter.bigger
+  %i.icon-group.blue
+  Регистрация
+.space-6
 = simple_form_for(resource, :as => resource_name, :url => registration_path(resource_name)) do |f|
   = f.error_notification
   .form-inputs
-    = f.input :email, :required => true, :autofocus => true
-    = f.input :password, :required => true
-    = f.input :password_confirmation, :required => true
-    = f.input :first_name, :required => true
-    = f.input :last_name, :required => true
-    = f.input :patronymic, :required => true
-  .form-actions
-    = f.button :submit, "Зарегистрироваться"
+    %span.block.input-icon.input-icon-right
+      = f.input_field :email, :required => true, :autofocus => true, class: "span12", placeholder: "Email"
+      %i.icon-envelope
+    %span.block.input-icon.input-icon-right
+      = f.input_field :password, :required => true, class: "span12", placeholder: "Пароль"
+      %i.icon-lock
+    %span.block.input-icon.input-icon-right
+      = f.input_field :password_confirmation, :required => true, class: "span12", placeholder: "Подтверждение пароля"
+      %i.icon-retweet
+    %span.block.input-icon.input-icon-right
+      = f.input_field :first_name, :required => true, class: "span12", placeholder: "Имя"
+      %i.icon-user
+    %span.block.input-icon.input-icon-right
+      = f.input_field :last_name, :required => true, class: "span12", placeholder: "Фамилия"
+      %i.icon-user
+    %span.block.input-icon.input-icon-right
+      = f.input_field :patronymic, :required => true, class: "span12", placeholder: "Отчество"
+    = f.button :submit, "Зарегистрироваться", class: "btn btn-success"
+%br/
 = render "devise/shared/links"

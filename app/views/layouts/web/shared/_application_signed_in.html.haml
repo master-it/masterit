@@ -1,0 +1,101 @@
+%body
+  .navbar.navbar-inverse
+    .navbar-inner
+      .container-fluid
+        %a.brand{:href => "#"}
+          %small
+            %i.icon-leaf
+            Мастер IT
+        %ul.nav.ace-nav.pull-right
+          - if user_signed_in?
+            - if current_user.role? :admin
+              %li.green
+                %a.user-menu.dropdown-toggle{"data-toggle" => "dropdown", :href => "#"}
+                  %i.icon-tasks
+                  %span Администратор
+                  %i.icon-caret-down
+                %ul#user_menu.pull-right.dropdown-menu.dropdown-yellow.dropdown-caret.dropdown-closer
+                  %li= link_to "Управление данными", rails_admin_path
+                  %li= link_to "Админка", admin_root_path
+            - if current_user.role? :expert
+              %li.purple
+                %a.user-menu.dropdown-toggle{"data-toggle" => "dropdown", :href => "#"}
+                  %i.icon-tasks
+                  %span Эксперт
+                  %i.icon-caret-down
+                %ul#user_menu.pull-right.dropdown-menu.dropdown-yellow.dropdown-caret.dropdown-closer
+                  %li= link_to "Оценка работ", expert_root_path
+            - if current_user.role? :moderator
+              %li.red
+                %a.user-menu.dropdown-toggle{"data-toggle" => "dropdown", :href => "#"}
+                  %i.icon-tasks
+                  %span Модератор
+                  %i.icon-caret-down
+                %ul#user_menu.pull-right.dropdown-menu.dropdown-yellow.dropdown-caret.dropdown-closer
+                  %li= link_to "Управление районом", moderator_root_path
+            -if Competition.current.first.present? && Competition.current.first.started?
+              %li.grey
+                %a.user-menu.dropdown-toggle{"data-toggle" => "dropdown", :href => "#"}
+                  %i.icon-tasks
+                  %span= t('.catalog_works')
+                  %i.icon-caret-down
+                %ul#user_menu.pull-right.dropdown-menu.dropdown-yellow.dropdown-caret.dropdown-closer
+                  - Competition.all.each do |c|
+                    = item :li, c, competition_work_nominations_path(c)
+            %li.light-blue.user-profile
+              %a.user-menu.dropdown-toggle{"data-toggle" => "dropdown", :href => "#"}
+                %span
+                  = current_user.email
+                %i.icon-caret-down
+              %ul#user_menu.pull-right.dropdown-menu.dropdown-yellow.dropdown-caret.dropdown-closer
+                %li
+                  = link_to user_path(current_user) do
+                    %i.icon-user
+                    Аккаунт
+                %li.divider
+                %li
+                  = link_to destroy_user_session_path, :method => :delete do
+                    %i.icon-off
+                    Выход
+          - else
+            %li.light-blue.user-profile
+              = link_to "Войти", new_user_session_path
+  #main-container.container-fluid
+    %a#menu-toggler{:href => "#"}
+      %span
+    #sidebar
+      %ul.nav.nav-list
+        - nav_menu_items_arrange.each_pair do |menu_item, children|
+          - if children.any?
+            %li
+              %a.dropdown-toggle{:href => "#"}
+                %i.icon-file
+                %span= menu_item.title
+                %b.arrow.icon-angle-down
+            %ul.submenu
+              - children.each_key do |sub_item|
+                %li
+                  = link_to page_path(sub_item.pages.first) do
+                    %i.icon-double-angle-right
+                    %span= sub_item.title
+          - else
+            %li
+              = link_to page_path(menu_item.pages.first) do
+                %i.icon-desktop
+                %span= menu_item.title
+      / /.nav-list
+      #sidebar-collapse
+        %i.icon-double-angle-left
+    #main-content.clearfix
+      #page-content.clearfix
+        - if content_for? (:header)
+          .page-header.position-relative
+            %h1
+              = yield(:header)
+        .row-fluid
+          = bootstrap_flash
+          .space-6
+
+          = yield
+      = render "layouts/web/shared/ace_settings_container"
+  = render 'layouts/web/shared/footer'

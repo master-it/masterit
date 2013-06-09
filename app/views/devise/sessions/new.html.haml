@@ -1,14 +1,34 @@
-%h2 Авторизация
+%h4.header.blue.lighter.bigger
+  %i.icon-coffee.green
+  Авторизация
+.space-6
 = simple_form_for(resource, :as => resource_name, :url => session_path(resource_name)) do |f|
-  .form-inputs
-    = f.input :email, :required => false, :autofocus => true
-    = f.input :password, :required => false
-    = f.input :remember_me, :as => :boolean if devise_mapping.rememberable?
-  .form-actions
-    = f.button :submit, "Войти", class: "btn"
-    = link_to "Войти через facebook", user_omniauth_authorize_path(:facebook), class: "btn"
-    = link_to "Войти через google", user_omniauth_authorize_path(:google_oauth2), class: "btn"
-    = link_to "Войти через twitter", user_omniauth_authorize_path(:twitter), class: "btn"
-    = link_to "Войти через vkontakte", user_omniauth_authorize_path(:vkontakte), class: "btn"
-
-= render "devise/shared/links"
+  %fieldset
+    .form-inputs
+      %span.block.input-icon.input-icon-right
+        = f.input_field :email, :required => false, :autofocus => true, class: "span12"
+        %i.icon-user
+      %span.block.input-icon.input-icon-right
+        = f.input_field :password, :required => false, class: "span12"
+        %i.icon-lock
+      - if devise_mapping.rememberable?
+        %label.span8
+          = f.input_field :remember_me, type: "checkbox"
+          %span.lbl Запомнить меня
+      = f.button :submit, "Войти", class: "btn span4 btn-small btn-primary"
+.toolbar.clearfix
+  %div
+    - if devise_mapping.recoverable? && controller_name != 'passwords'
+      = link_to new_password_path(resource_name), class: "forgot-password-link" do
+        %i.icon-arrow-left
+        Забыл пароль?
+  %div
+    - if devise_mapping.registerable? && controller_name != 'registrations'
+      = link_to new_registration_path(resource_name), class: "user-signup-link" do
+        Регистрация
+        %i.icon-arrow-right
+%br/
+- if devise_mapping.omniauthable?
+  - resource_class.omniauth_providers.each do |provider|
+    = link_to "Sign in with #{provider.to_s.titleize}", omniauth_authorize_path(resource_name, provider)
+    %br/

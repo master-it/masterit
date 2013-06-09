@@ -1,0 +1,19 @@
+%body.login-layout
+  #main-container.container-fluid
+    #main-content
+      .row-fluid
+        .span12
+          .login-container
+            .row-fluid
+              .center
+                %h1
+                  %i.icon-leaf.green
+                  %span.red Master
+                  %span.white It
+            .space-6
+            .row-fluid
+              .position-relative
+                #login-box.visible.widget-box.no-border
+                  .widget-body
+                    .widget-main
+                      = yield
